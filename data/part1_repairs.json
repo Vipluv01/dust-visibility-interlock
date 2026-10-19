@@ -1,0 +1,9 @@
+{
+  "speed_limit_not_in_statutory_set": 0,
+  "speed_limit_outside_0_85": 0,
+  "speed_limit_median_used": 30.0,
+  "age_of_driver_outside_16_110": 10328,
+  "age_of_driver_median_used": 39.0,
+  "unparseable_datetime": 0,
+  "missing_coordinates": 53
+}

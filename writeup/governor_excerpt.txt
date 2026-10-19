@@ -1,0 +1,111 @@
+def safe_speed_mph(sight_distance_m, decel=DECEL_CAPABILITY, reaction=REACTION_TIME):
+    """Fastest speed from which the vehicle can stop inside what it can see."""
+    if sight_distance_m is None or sight_distance_m <= 0:
+        return 0.0
+    v = -decel * reaction + (
+        (decel * reaction) ** 2 + 2.0 * decel * sight_distance_m) ** 0.5
+    return max(v, 0.0) / MPH
+
+
+def plume_detected(tm):
+    """SC-1's trigger. Missing data counts as a plume, never as clear air."""
+    reasons = []
+    if tm.sight_distance_m is None:
+        reasons.append("visibility sensor returned no reading")
+    elif tm.sight_distance_m < 100.0:
+        reasons.append(f"sight distance {tm.sight_distance_m:.4f} m below 100 m")
+    if tm.pm10 is None:
+        reasons.append("no particulate reading available")
+    else:
+        if tm.pm10 >= PM10_LIMIT:
+            reasons.append(f"PM10 {tm.pm10:.4f} >= limit value {PM10_LIMIT:.4f}")
+        if (tm.pm10_local_mean not in (None, 0)
+                and tm.pm10 >= PM10_SPIKE_RATIO * tm.pm10_local_mean):
+            reasons.append(
+                f"PM10 {tm.pm10:.4f} is {tm.pm10 / tm.pm10_local_mean:.4f}x local mean")
+    return reasons
+
+
+class VisibilityGovernor:
+    """Enforces SC-1..SC-5. Stateful: SC-4 needs to remember it is restricting."""
+
+    def __init__(self, disabled=()):
+        self.disabled = set(disabled)
+        self.restricting = False
+        self.clear_for = 0.0
+        self.commanded_speed = None
+        self.log = []
+
+    def _on(self, sc):
+        return sc not in self.disabled
+
+    def step(self, tm, dt=1.0):
+        reasons = plume_detected(tm) if self._on("SC-1") else []
+        triggered = list(reasons)
+
+        # SC-3: the driver's hands win, instantly and unconditionally.
+        if tm.driver_override and self._on("SC-3"):
+            self.restricting = False
+            self.clear_for = 0.0
+            self.commanded_speed = None
+            cmd = Command(tm.speed_mph, False, "driver in control", ["SC-3 override"],
+                          "DRIVER")
+            self.log.append(cmd)
+            return cmd
+
+        if reasons:
+            self.restricting = True
+            self.clear_for = 0.0
+        elif self.restricting:
+            # SC-4: hold through hysteresis so the restriction is not released early.
+            self.clear_for += dt
+            if not self._on("SC-4") or self.clear_for >= HYSTERESIS_SECONDS:
+                self.restricting = False
+                self.commanded_speed = None
+                cmd = Command(tm.speed_mph, False, "visibility restored", triggered,
+                              "RELEASED")
+                self.log.append(cmd)
+                return cmd
+            triggered.append(
+                f"SC-4 holding restriction, clear for {self.clear_for:.4f}s "
+                f"of {HYSTERESIS_SECONDS:.4f}s")
+
+        if not self.restricting:
+            cmd = Command(tm.speed_mph, False, "nominal", triggered, "NOMINAL")
+            self.log.append(cmd)
+            return cmd
+
+        # --- the restricted target -------------------------------------------
+        sight = tm.sight_distance_m
+        if sight is None:
+            sight = 15.0  # fail-safe: assume the worst the brief contemplates
+            triggered.append("SC-5 missing visibility treated as 15 m")
+        physics_limit = safe_speed_mph(sight)
+
+        floor = ROAD_CLASS_FLOOR.get(tm.road_class, 20.0)
+        advisory = "reduce to visibility-limited speed"
+        target = physics_limit
+        if self._on("SC-2") and physics_limit < floor:
+            # The physics wants a speed the road cannot safely carry. Do not clamp
+            # into high-speed flow: hold the floor and demand the vehicle leave it.
+            target = floor
+            advisory = (f"hold {floor:.4f} mph floor for {tm.road_class} and "
+                        f"leave the carriageway - physics limit {physics_limit:.4f} mph "
+                        f"is below what this road can carry safely")
+            triggered.append(
+                f"SC-2 road-class floor {floor:.4f} mph overrides physics limit "
+                f"{physics_limit:.4f} mph")
+
+        # SC-2 rate limit: never command a slowdown the following driver cannot match.
+        if self._on("SC-2"):
+            prev = self.commanded_speed if self.commanded_speed is not None else tm.speed_mph
+            max_drop_mph = (COMFORT_DECEL_LIMIT * dt) / MPH
+            if prev - target > max_drop_mph:
+                target = prev - max_drop_mph
+                triggered.append(
+                    f"SC-2 rate limit, slowdown capped at {max_drop_mph:.4f} mph/tick")
+
+        self.commanded_speed = target
+        cmd = Command(round(target, 4), True, advisory, triggered, "RESTRICT")
+        self.log.append(cmd)
+        return cmd

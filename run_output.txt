@@ -1,0 +1,513 @@
+
+=============================================================================
+ Sudden Environmental Visibility Loss via Particulate Dust Plumes
+ A hybrid statistical, machine-learning and STAMP software-interlock study
+ of goods-vehicle risk on the GB road network, 2021-2025
+
+ Vipluv  -  22MF3IM22
+ Centre of Excellence on Safety Engineering & Analytics (CoE-SEA), IIT Kharagpur
+=============================================================================
+
+analysis frame loaded: 513,801 collisions x 44 columns
+
+
+=== PART 2: PATTERNS, CHARTS AND ASSOCIATION PROOF ===
+
+study window        : 2021-01-01 to 2025-12-31
+days in panel       : 1,826
+goods collisions    : 74,804
+of which KSI        : 17,660 (23.6084%)
+mean daily KSI      : 9.6714
+mean daily risk idx : 23.9947 KSI per 100 collisions
+
+--- by year ---
+      collisions   ksi     risk     pm10
+year                                    
+2021       15459  3399  22.1930  14.5877
+2022       15273  3535  23.9424  15.7718
+2023       14670  3441  23.4360  14.1859
+2024       13992  3435  25.0736  13.4152
+2025       15410  3850  25.3254  14.9948
+
+--- by month, all years pooled ---
+           ksi     risk     fog     pm10
+month                                   
+1       8.8000  23.2347  0.0095  15.6120
+2       9.0142  23.5446  0.0044  16.1956
+3       8.9419  23.6451  0.0040  19.8553
+4       9.0133  23.8143  0.0010  16.3458
+5       9.8129  24.3001  0.0007  14.6210
+6      10.4133  24.3114  0.0003  14.1151
+7      10.3742  24.9727  0.0007  11.9619
+8       9.7097  24.5795  0.0010  12.8400
+9      10.4800  24.8052  0.0032  14.1040
+10     10.0710  23.2455  0.0050  12.8175
+11     10.8000  23.4363  0.0072  13.9291
+12      8.6323  24.0186  0.0209  12.8369
+
+wrote results/figures/daily_risk_index.png and .pdf
+
+======================================================================
+ The brief asserts one dependency. The data contains two, with opposite
+ signs, so they are tested separately rather than pooled.
+======================================================================
+
+--- Table 2.1  RECORDED VISIBILITY: fog or mist x loss of control ---
+                    loss of control         no such event   row total
+fog or mist                      92                   224         316
+clear                        12,736                61,752      74,488
+col total                    12,828                61,976      74,804
+  expected counts under independence:
+    fog or mist                 54.1903              261.8097
+    clear                    12773.8097            61714.1903
+  chi-square (uncorrected) = 31.9761
+  chi-square (Yates)       = 31.1360
+  critical value, df=1, alpha=0.05 = 3.8415
+  verdict                  = REJECT independence
+  odds ratio               = 1.9914
+  phi coefficient          = 0.0207
+
+--- Table 2.2  RECORDED VISIBILITY: fog or mist x fatal outcome ---
+                              fatal             not fatal   row total
+fog or mist                      15                   301         316
+clear                         1,770                72,718      74,488
+col total                     1,785                73,019      74,804
+  expected counts under independence:
+    fog or mist                  7.5405              308.4595
+    clear                     1777.4595            72710.5405
+  chi-square (uncorrected) = 7.5918
+  chi-square (Yates)       = 6.6082
+  critical value, df=1, alpha=0.05 = 3.8415
+  verdict                  = REJECT independence
+  odds ratio               = 2.0474
+  phi coefficient          = 0.0101
+
+--- Table 2.3  PARTICULATE CHANNEL: PM10 exceedance x loss of control ---
+                         loss of control         no such event   row total
+PM10 >= 50 ug/m3                      73                   457         530
+PM10 below limit                  11,998                57,761      69,759
+col total                         12,071                58,218      70,289
+  expected counts under independence:
+    PM10 >= 50 ug/m3                 91.0189              438.9811
+    PM10 below limit              11979.9811            57779.0189
+  chi-square (uncorrected) = 4.3395
+  chi-square (Yates)       = 4.1020
+  critical value, df=1, alpha=0.05 = 3.8415
+  verdict                  = REJECT independence
+  odds ratio               = 0.7690
+  phi coefficient          = -0.0079
+
+--- Table 2.4  THE POOLED COMPOSITE THE BRIEF IMPLIES - and why it fails ---
+                               loss of control         no such event   row total
+fog OR PM10 exceedance                     163                   676         839
+neither                                 12,665                61,300      73,965
+col total                               12,828                61,976      74,804
+  expected counts under independence:
+    fog OR PM10 exceedance                143.8786              695.1214
+    neither                             12684.1214            61280.8786
+  chi-square (uncorrected) = 3.1020
+  chi-square (Yates)       = 2.9419
+  critical value, df=1, alpha=0.05 = 3.8415
+  verdict                  = retain independence
+  odds ratio               = 1.1671
+  phi coefficient          = 0.0064
+
+  Tables 2.1 and 2.3 are both significant and point in OPPOSITE
+  directions, so pooling them into one 'low visibility' exposure cancels
+  the effect and reports a false null. Table 2.4 is reported to show that.
+
+--- Table 2.5  POSITIVE CONTROL: darkness x loss of control ---
+                 loss of control         no such event   row total
+darkness                   3,038                12,223      15,261
+daylight                   9,790                49,753      59,543
+col total                 12,828                61,976      74,804
+  expected counts under independence:
+    darkness               2617.0807            12643.9193
+    daylight              10210.9193            49332.0807
+  chi-square (uncorrected) = 102.6540
+  chi-square (Yates)       = 102.4103
+  critical value, df=1, alpha=0.05 = 3.8415
+  verdict                  = REJECT independence
+  odds ratio               = 1.2631
+  phi coefficient          = 0.0370
+
+  Table 2.5 is a known road-safety risk factor, included to show the test
+  detects an association when one is present.
+
+
+--- Why the particulate channel carries the opposite sign ---
+
+           day type  dry road %  wet road %  raining %  fog %  loss of control %
+PM10 exceedance day     85.8491      9.2453     3.0189 1.3208            13.7736
+     all other days     73.3955     23.5439    10.4030 0.4200            17.1992
+
+  daily PM10 against wet-surface share : r = -0.2806
+  daily PM10 against fog share         : r = 0.1073
+  share of exceedance collisions in March: 48.6792%
+
+  A regional PM10 exceedance in Great Britain is predominantly a dry,
+  settled, anticyclonic day, and the March concentration is consistent with
+  spring Saharan dust intrusion. Loss of control needs a wet or icy surface.
+  So PM10 exceedance is negatively associated with loss of control through
+  the weather regime, not because airborne particulate is protective.
+  PM10 does track fog (fog is 3.1448x more likely on an
+  exceedance day), so the two channels do co-occur - but a station-scale
+  air-quality feed cannot stand in for a micro-scale visibility reading.
+
+--- Table 2.6  day-level: low-visibility day x high speed-limit dispersion (median split 16.7359 mph) ---
+                       high speed variance    low speed variance   row total
+low-visibility day                     140                   153         293
+clear day                              773                   760       1,533
+col total                              913                   913       1,826
+  expected counts under independence:
+    low-visibility day                146.5000              146.5000
+    clear day                         766.5000              766.5000
+  chi-square (uncorrected) = 0.6870
+  chi-square (Yates)       = 0.5854
+  critical value, df=1, alpha=0.05 = 3.8415
+  verdict                  = retain independence
+  odds ratio               = 0.8996
+  phi coefficient          = -0.0194
+
+  Day-level aggregation dilutes a micro-scale exposure across every
+  collision that day, which is why the collision-level tables above are
+  the ones the conclusions rest on.
+
+
+=== PART 3: FEATURE TRANSFORMATION, PCA AND POISSON COUNT MODEL ===
+
+one-hot encoding    : 4 categorical fields -> 25 indicator columns
+min-max scaling     : 5 continuous fields scaled to [0, 1]
+design matrix       : 74,804 rows x 30 columns
+
+--- PCA ---
+  components retaining 95% of variance : 12 of 30
+  cumulative variance at 12 components : 95.0127%
+  components retaining 99% of variance : 20
+  cumulative variance at 20 components : 99.2103%
+  first eight components, individual and cumulative share:
+    PC1   26.3335%   cumulative  26.3335%
+    PC2   20.2241%   cumulative  46.5576%
+    PC3   12.5069%   cumulative  59.0645%
+    PC4    9.5703%   cumulative  68.6348%
+    PC5    7.0921%   cumulative  75.7269%
+    PC6    5.7215%   cumulative  81.4484%
+    PC7    3.8880%   cumulative  85.3364%
+    PC8    2.7831%   cumulative  88.1195%
+
+--- Poisson regression: daily goods-vehicle KSI count ---
+    offset = log(daily goods-vehicle collisions), so coefficients are rate effects
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                    ksi   No. Observations:                 1826
+Model:                            GLM   Df Residuals:                     1818
+Model Family:                 Poisson   Df Model:                            7
+Link Function:                    Log   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -4385.8
+Date:                Mon, 19 Oct 2026   Deviance:                       1485.3
+Time:                        17:22:08   Pearson chi2:                 1.46e+03
+No. Iterations:                     5   Pseudo R-squ. (CS):            0.01879
+Covariance Type:            nonrobust                                         
+====================================================================================
+                       coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------
+const               -1.7229      0.118    -14.635      0.000      -1.954      -1.492
+fog_day             -0.0046      0.025     -0.182      0.856      -0.054       0.045
+pm10_exceed_day      0.0079      0.030      0.263      0.793      -0.051       0.067
+pm10_mean           -0.0003      0.001     -0.231      0.817      -0.003       0.002
+dark_share           0.2436      0.062      3.923      0.000       0.122       0.365
+wet_share           -0.2305      0.045     -5.084      0.000      -0.319      -0.142
+speed_dispersion    -0.0041      0.007     -0.579      0.562      -0.018       0.010
+mean_speed_limit     0.0087      0.003      2.552      0.011       0.002       0.015
+====================================================================================
+
+--- risk multipliers, exp(coefficient) ---
+term                          coef   exp(coef)           p  significant
+const                      -1.7229      0.1785      0.0000  yes (p < 0.05)
+fog_day                    -0.0046      0.9954      0.8560  no
+pm10_exceed_day             0.0079      1.0079      0.7926  no
+pm10_mean                  -0.0003      0.9997      0.8173  no
+dark_share                  0.2436      1.2759      0.0001  yes (p < 0.05)
+wet_share                  -0.2305      0.7941      0.0000  yes (p < 0.05)
+speed_dispersion           -0.0041      0.9960      0.5623  no
+mean_speed_limit            0.0087      1.0087      0.0107  yes (p < 0.05)
+
+  significant terms: dark_share, wet_share, mean_speed_limit
+    dark_share: a one-unit rise raises the KSI rate by a factor of 1.2759 (27.5872%)
+    wet_share: a one-unit rise lowers the KSI rate by a factor of 0.7941 (20.5883%)
+    mean_speed_limit: a one-unit rise raises the KSI rate by a factor of 1.0087 (0.8738%)
+
+
+=== PART 4: THE AI FAILURE AUDIT ===
+
+design matrix       : 74,804 rows x 38 features
+class balance       : {'Safe': 57144, 'Minor': 15875, 'Severe': 1785}
+  excluded as outcome leakage: number_of_casualties, worst_casualty, casualty_severity
+
+classifier          : RandomForest, 400 trees, min_samples_leaf=3, class_weight='balanced', seed=42
+train / test        : 56,103 / 18,701
+
+--- class-balanced evaluation ---
+class        precision      recall          f1   support
+Safe            0.8163      0.7283      0.7698    14,286
+Minor           0.2981      0.3792      0.3338     3,969
+Severe          0.1200      0.2444      0.1610       446
+
+  macro precision   = 0.4115
+  macro recall      = 0.4506
+  macro F1          = 0.4215
+  accuracy          = 0.6426
+  majority baseline = 0.7639
+
+--- confusion matrix, rows = actual, columns = predicted ---
+actual            Safe       Minor      Severe
+Safe            10,404       3,347         535
+Minor            2,200       1,505         264
+Severe             141         196         109
+
+--- THE CRITICAL CORE: false negatives ---
+    a false negative here is a collision the model called 'Safe' that was actually 'Severe' (fatal).
+    false negatives: 141 of 446 actual Severe cases (31.6143%)
+
+    first 25 false-negative rows:
+collision_index       date  speed_limit road_class_label         weather_label             light_label surface_label    pm10  aurn_dist_km  any_skid  any_decel  number_of_vehicles
+  2021061042601 2021-04-24         70.0         Motorway    Fine no high winds                Daylight           Dry 21.7395        2.2884     False      False                 2.0
+  2021440196667 2021-05-21         70.0         Motorway  Raining + high winds                Daylight   Wet or damp  7.6396       13.3642     False      False                 2.0
+  2023332300219 2023-02-17         40.0                C    Fine no high winds   Darkness - lights lit   Wet or damp     NaN        6.2811     False      False                 2.0
+  2025501589152 2025-05-12         60.0     Unclassified    Fine no high winds                Daylight   Wet or damp 12.4740       13.9674     False      False                 2.0
+  2022421152445 2022-03-10         30.0     Unclassified    Fine no high winds                Daylight           Dry 19.5413       18.7195     False      False                 2.0
+  2023440091581 2023-03-06         40.0                A Raining no high winds  Darkness - no lighting   Wet or damp 22.5447        4.3215     False      False                 2.0
+  2024010538125 2024-10-16         20.0     Unclassified    Fine no high winds                Daylight   Wet or damp     NaN        0.7210     False      False                 1.0
+  2022411210450 2022-08-18         60.0                B    Fine no high winds                Daylight   Wet or damp 20.4110       26.9867      True      False                 2.0
+  2023161384458 2023-12-08         30.0                A    Fine no high winds   Darkness - lights lit   Wet or damp 13.3658        1.7425     False      False                 2.0
+  2022401208633 2022-08-12         70.0         Motorway    Fine no high winds                Daylight           Dry 19.0073       53.7275     False      False                 2.0
+  202560C129698 2025-08-20         30.0                A    Fine no high winds                Daylight           Dry  7.8198       53.3639      True       True                 2.0
+  2024010491217 2024-01-26         30.0                A    Fine no high winds                Daylight           Dry 12.6833        8.0496     False      False                 2.0
+  2021421109614 2021-11-13         30.0     Unclassified    Fine no high winds Darkness - lights unlit           Dry  7.2466        9.0268      True      False                 4.0
+  2024061443821 2024-05-16         30.0     Unclassified    Fine no high winds                Daylight           Dry 19.7615        3.2221     False      False                 2.0
+  2021421080238 2021-08-23         70.0         Motorway    Fine no high winds                Daylight           Dry 14.5896       20.8937      True      False                 3.0
+  2023211308969 2023-05-18         70.0         Motorway    Fine no high winds                Daylight           Dry 15.6271       17.8129      True      False                 3.0
+  2025231544363 2025-01-17         50.0                B    Fine no high winds  Darkness - no lighting   Wet or damp 18.6750        7.1089     False      False                 2.0
+  2023430010187 2023-01-08         60.0                A    Fine no high winds   Darkness - lights lit   Wet or damp 10.5879       12.6735     False      False                 2.0
+  2024061462076 2024-07-01         30.0                A    Fine no high winds   Darkness - lights lit           Dry  8.3900        6.5650     False      False                 2.0
+  2021991106103 2021-11-04         50.0         Motorway    Fine no high winds                Daylight   Wet or damp  7.0049       43.4715      True      False                 1.0
+  2022010390783 2022-07-19         30.0                A    Fine no high winds                Daylight           Dry 28.3652        7.6113     False      False                 2.0
+  2024010529030 2024-08-27         20.0                A    Fine no high winds                Daylight           Dry 13.0062        3.4997     False      False                 2.0
+  2025622600007 2025-12-29         50.0                A    Fine no high winds                Daylight           Dry  9.6217       22.4718      True      False                 2.0
+  2023991383845 2023-12-07         60.0                B    Fine no high winds                Daylight   Wet or damp  6.3010       31.4772     False      False                 2.0
+  2022031253318 2022-12-13         50.0                A    Fine no high winds   Darkness - lights lit   Wet or damp 17.3514       90.4065     False       True                 1.0
+
+--- what the false negatives have in common ---
+
+  by weather:
+                       false_neg_pct  test_set_pct    lift
+weather_label                                             
+Fine no high winds           85.1064       82.2737  1.0344
+Raining no high winds         7.0922       10.3952  0.6823
+Fine + high winds             2.1277        0.8983  2.3686
+Fog or mist                   1.4184        0.3957  3.5845
+Other                         1.4184        2.6202  0.5413
+
+  by light:
+                             false_neg_pct  test_set_pct    lift
+light_label                                                     
+Daylight                           74.4681       79.2235  0.9400
+Darkness - lights lit              15.6028       13.1825  1.1836
+Darkness - no lighting              5.6738        5.5885  1.0153
+Darkness - lighting unknown         2.1277        1.3049  1.6305
+Darkness - lights unlit             2.1277        0.7006  3.0370
+
+  by road surface:
+                     false_neg_pct  test_set_pct    lift
+surface_label                                           
+Dry                        68.7943       74.3492  0.9253
+Wet or damp                31.2057       24.0944  1.2951
+Flood over 3cm deep            NaN        0.0705     NaN
+Frost or ice                   NaN        1.1931     NaN
+Snow                           NaN        0.2928     NaN
+
+  by road class:
+                  false_neg_pct  test_set_pct    lift
+road_class_label                                     
+A                       48.9362       47.6819  1.0263
+Unclassified            19.8582       28.9075  0.6870
+Motorway                16.3121        7.9728  2.0460
+B                        8.5106       11.4432  0.7437
+C                        4.9645        3.4971  1.4196
+
+  PM10 reading missing in false negatives : 7.0922%
+  PM10 reading missing in whole test set  : 5.7751%
+  mean PM10, false negatives              : 14.2027
+  mean PM10, whole test set               : 14.7979
+  fog or mist share, false negatives      : 1.4184%
+  fog or mist share, whole test set       : 0.3957%
+
+--- top 12 feature importances ---
+aurn_dist_km                          0.1579
+mean_driver_age                       0.1461
+pm10                                  0.1392
+hour                                  0.1051
+month_n                               0.0878
+speed_limit                           0.0842
+number_of_vehicles                    0.0535
+n_articulated                         0.0251
+any_skid                              0.0217
+road_class_label_A                    0.0176
+any_decel                             0.0172
+light_label_Darkness - no lighting    0.0158
+
+
+=== PART 5: THE STAMP SOFTWARE SAFEGUARD ===
+
+--- Hierarchical control structure (three tiers) ---
+
+  TIER 1  Fleet Safety Management
+          downward : route and dispatch policy, speed policy, ODD limits
+          upward   : incident reports, interlock audit logs, exceedance trends
+             |                                    ^
+             v                                    |
+  TIER 2  Vehicle Visibility Supervisor  (the software controller)
+          downward : target-speed command, hazard-light command, advisories
+          upward   : visibility and particulate readings, AI severity
+                     prediction, driver override state
+             |                                    ^
+             v                                    |
+  TIER 3  Actuators and driver
+          downward : engine torque limit, service brake, hazard lamps
+          upward   : wheel speed, deceleration achieved, override switch
+
+--- STPA: unsafe control actions for 'Issue Visibility-Loss Speed Restriction' ---
+
+  [Not provided]
+    UCA        : Plume entered, no speed restriction issued
+    Hazard     : H-1 Goods vehicle strikes a vehicle or obstacle hidden by the plume
+    Constraint : SC-1 Any visibility degradation, or any missing visibility reading, must command the visibility-limited speed within one control cycle
+
+  [Provided incorrectly]
+    UCA        : Restriction issued, but to a speed the sight distance does not support (the brief's flat 20 mph), or clamped into high-speed flow
+    Hazard     : H-1 on a short sight distance; H-2 rear-end collision on a fast road
+    Constraint : SC-2 Target speed must be the lesser of the physics limit and the posted limit, never below the road-class floor; hazards precede the slowdown and the deceleration is rate-limited to 2.5 m/s^2
+
+  [Too late]
+    UCA        : Restriction issued after the vehicle is already inside the plume
+    Hazard     : H-1 The vehicle is travelling faster than its sight distance permits
+    Constraint : SC-1 trigger is the leading particulate indicator, not the visibility outcome, so the command precedes the sight-distance collapse
+
+  [Stopped too soon]
+    UCA        : Restriction released while the plume still surrounds the vehicle
+    Hazard     : H-1 Speed returns before sight distance does
+    Constraint : SC-4 Release requires ten consecutive seconds of confirmed-clear readings
+
+--- Offline audit: the interlock against the classifier's false negatives ---
+
+  false negatives to guard : 141
+  design-basis sight distances: clear 500.0000 m, fog 50.0000 m, PM10 exceedance 80.0000 m, both 15.0000 m
+  (STATS19 carries no sight distance; these are design-basis values, not measurements)
+
+  governor issues a restriction : 12 of 141 (8.5106%)
+  brief's interlock fires      : 0 of 141 (0.0000%)
+
+  The brief's rule only fires below 15 m, a condition STATS19 can only
+  evidence when fog and a PM10 exceedance coincide. The governor also acts
+  on a missing reading (SC-5) and on a single degraded channel (SC-1).
+
+  false negatives under degraded visibility : 12
+    of which the governor restricts         : 12
+  false negatives in clear conditions       : 129
+    of which the governor restricts         : 0
+
+  A visibility interlock must NOT fire on a collision that had nothing to
+  do with visibility. Staying nominal on the clear-condition false negatives
+  is correct behaviour, not a miss: those collisions need a different
+  safeguard, and this study says so rather than claiming one interlock
+  covers every failure of the classifier.
+
+  sample of the audit, first 15 rows:
+collision_index   road_class  posted  sight_m      pm10 gov_mode  gov_target brief_mode  brief_target  visibility_degraded
+  2021061042601     Motorway    70.0    500.0 21.739542  NOMINAL     70.0000    NOMINAL          70.0                False
+  2021440196667     Motorway    70.0    500.0  7.639583  NOMINAL     70.0000    NOMINAL          70.0                False
+  2023332300219            C    40.0      NaN       NaN RESTRICT     34.4077    NOMINAL          40.0                 True
+  2025501589152 Unclassified    60.0    500.0 12.473958  NOMINAL     60.0000    NOMINAL          60.0                False
+  2022421152445 Unclassified    30.0    500.0 19.541333  NOMINAL     30.0000    NOMINAL          30.0                False
+  2023440091581            A    40.0    500.0 22.544708  NOMINAL     40.0000    NOMINAL          40.0                False
+  2024010538125 Unclassified    20.0      NaN       NaN RESTRICT     20.0000    NOMINAL          20.0                 True
+  2022411210450            B    60.0    500.0 20.411000  NOMINAL     60.0000    NOMINAL          60.0                False
+  2023161384458            A    30.0    500.0 13.365750  NOMINAL     30.0000    NOMINAL          30.0                False
+  2022401208633     Motorway    70.0    500.0 19.007292  NOMINAL     70.0000    NOMINAL          70.0                False
+  202560C129698            A    30.0    500.0  7.819792  NOMINAL     30.0000    NOMINAL          30.0                False
+  2024010491217            A    30.0    500.0 12.683333  NOMINAL     30.0000    NOMINAL          30.0                False
+  2021421109614 Unclassified    30.0    500.0  7.246625  NOMINAL     30.0000    NOMINAL          30.0                False
+  2024061443821 Unclassified    30.0    500.0 19.761458  NOMINAL     30.0000    NOMINAL          30.0                False
+  2021421080238     Motorway    70.0    500.0 14.589625  NOMINAL     70.0000    NOMINAL          70.0                False
+
+--- Closed-loop validation: a plume encounter, tick by tick (dt = 0.05 s) ---
+
+scenario                          controller              front impact   rear impact
+Trunk road, dense plume           unguarded                    56.8683       54.5195
+Trunk road, dense plume           brief 20 mph clamp           56.8683       54.5195
+Trunk road, dense plume           governor                      0.0000        0.0000
+Trunk road, dense plume           governor, SC-2 off            0.0000        0.0000
+Trunk road, dense plume           governor, SC-1 off           56.8683       54.5195
+
+Motorway, dense plume             unguarded                    69.1052       68.4341
+Motorway, dense plume             brief 20 mph clamp           69.1052       68.4341
+Motorway, dense plume             governor                     25.6836        0.0000
+Motorway, dense plume             governor, SC-2 off            3.3121        0.0000
+Motorway, dense plume             governor, SC-1 off           69.1052       68.4341
+
+Motorway, brief's 12 m trigger    unguarded                    70.0000       70.0000
+Motorway, brief's 12 m trigger    brief 20 mph clamp            0.0000       35.2317
+Motorway, brief's 12 m trigger    governor                      0.0000       30.0000
+Motorway, brief's 12 m trigger    governor, SC-2 off            0.0000       35.2317
+Motorway, brief's 12 m trigger    governor, SC-1 off           70.0000       70.0000
+
+B road, 12 m plume                unguarded                    40.0000       40.0000
+B road, 12 m plume                brief 20 mph clamp            0.0000       20.0000
+B road, 12 m plume                governor                      0.0000       20.0000
+B road, 12 m plume                governor, SC-2 off            0.0000       27.4025
+B road, 12 m plume                governor, SC-1 off           40.0000       40.0000
+
+Trunk road, sensor returns nothingunguarded                    60.0000       60.0000
+Trunk road, sensor returns nothingbrief 20 mph clamp           60.0000       60.0000
+Trunk road, sensor returns nothinggovernor                      0.0000       30.0000
+Trunk road, sensor returns nothinggovernor, SC-2 off            0.0000       31.5967
+Trunk road, sensor returns nothinggovernor, SC-1 off           60.0000       60.0000
+
+
+--- Constraint checks ---
+
+  [PASS]  The governor never increases a front impact speed
+  [PASS]  The governor's rear-end exposure never exceeds the brief's
+  [PASS]  SC-5 acts on a missing reading where the brief's rule is silent
+  [PASS]  Removing SC-1 degrades protection (ablation is not inert)
+  [PASS]  The governor restricts on every false negative that occurred under degraded visibility
+  [PASS]  The governor stays nominal on clear-condition false negatives (no spurious restriction)
+  [PASS]  20 mph exceeds the safe speed at 15 m (14.5177 mph), so the brief's clamp is unsafe
+
+  7 of 7 checks pass
+
+wrote results/figures/safe_speed_vs_sight.png and .pdf
+
+
+=== SUMMARY OF HEADLINE NUMBERS ===
+
+  goods-vehicle collisions, 2021-2025      : 74,804
+  of which killed or seriously injured     : 17,660
+  chi-square, fog x loss of control        : 31.9761 (critical 3.8415), OR = 1.9914
+  chi-square, fog x fatal outcome          : 7.5918, OR = 2.0474
+  chi-square, PM10 exceedance x loss of ctl: 4.3395, OR = 0.7690 (opposite sign)
+  chi-square, pooled composite             : 3.1020 (the two effects cancel)
+  daily PM10 vs wet-surface correlation    : -0.2806
+  PCA components for 95% of variance       : 12 of 30
+  classifier macro F1                      : 0.4215
+  classifier accuracy / baseline           : 0.6426 / 0.7639
+  false negatives (Safe, actually Severe)  : 141
+  governor restricts on false negatives    : 12 of 141
+  safe speed at the brief's 15 m trigger   : 14.5177 mph
+  20 mph only becomes safe beyond          : 23.4211 m
+  constraint checks passing                : 7 of 7
+
+wrote results/summary.json
+
+done.
+

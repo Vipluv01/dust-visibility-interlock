@@ -1,0 +1,11 @@
+# Raw downloads: ~757 MB, re-fetchable with scripts/fetch_aurn.py and the
+# STATS19 URLs documented in README.md
+data_raw/
+
+# Derived collision panel: 157 MB, over GitHub's file limit.
+# Regenerate with: .venv/bin/python scripts/build_dataset.py
+data/collision_panel.csv
+
+.venv/
+__pycache__/
+*.pyc

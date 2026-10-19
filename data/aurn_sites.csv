@@ -1,0 +1,88 @@
+site_id,site_name,latitude,longitude,location_type,zone
+ARM6,Armagh Roadside,54.353728,-6.654558,Urban Traffic,Northern Ireland
+ACTH,Auchencorth Moss,55.79216,-3.2429,Rural Background,Central Scotland
+BPLE,Barnstaple A39,51.074793,-4.041924,Urban Traffic,South West
+BEL2,Belfast Centre,54.59965,-5.928833,Urban Background,Northern Ireland
+BEL1,Belfast Stockman's Lane,54.572586,-5.974944,Urban Traffic,Northern Ireland
+BIRR,Birmingham A4540 Roadside,52.476145,-1.874978,Urban Traffic,West Midlands
+BMLD,Birmingham Ladywood,52.481346,-1.918235,Urban Background,West Midlands
+BLC2,Blackpool Marton,53.80489,-3.007175,Urban Background,North West & Merseyside
+BRS8,Bristol St Paul's,51.462839,-2.584482,Urban Background,South West
+BR11,Bristol Temple Way,51.457968,-2.583975,Urban Traffic,South West
+BURW,Bury Whitefield Roadside,53.559029,-2.293772,Urban Traffic,North West & Merseyside
+CA1,Camden Kerbside,51.544233,-0.175228,Urban Traffic,Greater London
+CARD,Cardiff Centre,51.48178,-3.17625,Urban Background,South Wales
+CNPR,Cardiff Newport Road,51.49096,-3.152305,Urban Traffic,South Wales
+CHAT,Chatham Roadside,51.374264,0.54797,Urban Traffic,South East
+CHP,Chepstow A48,51.638094,-2.678731,Urban Traffic,South Wales
+CHLG,Chesterfield Loundsley Green,53.244131,-1.454946,Urban Background,East Midlands
+CHS7,Chesterfield Roadside,53.231751,-1.456928,Urban Traffic,East Midlands
+CHBO,Chilbolton Observatory,51.149617,-1.438228,Rural Background,South East
+COAL,Coventry Allesley,52.411628,-1.560189,Urban Background,West Midlands
+COBR,Coventry Binley Road,52.407708,-1.490082,Urban Traffic,West Midlands
+DERR,Derry Rosemount,55.002818,-7.331179,Urban Background,Northern Ireland
+EA8,Ealing Horn Lane,51.51895,-0.265617,Urban Traffic,Greater London
+EB,Eastbourne,50.805778,0.271611,Urban Background,South East
+ED3,Edinburgh St Leonards,55.945589,-3.182186,Urban Background,Central Scotland
+GHSR,Glasgow High Street,55.860936,-4.238214,Urban Traffic,Central Scotland
+GLKP,Glasgow Townhead,55.865782,-4.243631,Urban Background,Central Scotland
+GRAN,Grangemouth,56.010319,-3.704399,Urban Industrial,Central Scotland
+GKA8,Greenock A8 Roadside,55.944079,-4.734421,Urban Traffic,Central Scotland
+HUL2,Hull Freetown,53.74878,-0.341222,Urban Background,Yorkshire & Humberside
+HULR,Hull Holderness Road,53.759013,-0.305678,Urban Traffic,Yorkshire & Humberside
+INV2,Inverness,57.481308,-4.241451,Urban Traffic,Highland
+LEAM,Leamington Spa,52.28881,-1.533119,Urban Background,West Midlands
+LEAR,Leamington Spa Rugby Road,52.294884,-1.542911,Urban Traffic,West Midlands
+LEED,Leeds Centre,53.80378,-1.546472,Urban Background,Yorkshire & Humberside
+LED6,Leeds Headingley Kerbside,53.819972,-1.576361,Urban Traffic,Yorkshire & Humberside
+LEIR,Leicester A594 Roadside,52.638742,-1.124267,Urban Traffic,East Midlands
+LECU,Leicester University,52.619904,-1.127182,Urban Background,East Midlands
+LVP,Liverpool Speke,53.34633,-2.844333,Urban Industrial,North West & Merseyside
+BEX,London Bexley,51.46603,0.184806,Suburban Background,Greater London
+CLL2,London Bloomsbury,51.52229,-0.125889,Urban Background,Greater London
+HRL,London Harlington,51.48879,-0.441614,Urban Industrial,Greater London
+HIL,London Hillingdon,51.49633,-0.460861,Urban Background,Greater London
+HP1,London Honor Oak Park,51.449674,-0.037418,Urban Background,Greater London
+MY1,London Marylebone Road,51.52253,-0.154611,Urban Traffic,Greater London
+KC1,London N. Kensington,51.52105,-0.213419,Urban Background,Greater London
+TED2,London Teddington Bushy Park,51.425286,-0.345606,Urban Background,Greater London
+LN,Lough Navar,54.43951,-7.900328,Rural Background,Northern Ireland
+MAN3,Manchester Piccadilly,53.48152,-2.237881,Urban Background,North West & Merseyside
+MID,Middlesbrough,54.569297,-1.220874,Urban Background,North East
+PEMB,Narberth,51.782616,-4.69237,Rural Background,South Wales
+NEWC,Newcastle Centre,54.97825,-1.610528,Urban Background,North East
+NCA3,Newcastle Cradlewell Roadside,54.986405,-1.595362,Urban Traffic,North East
+NPT3,Newport,51.601203,-2.977281,Urban Background,South Wales
+NO12,Norwich Lakenfields,52.614823,1.302686,Urban Background,Eastern
+NWBV,Nottingham Western Boulevard,52.969377,-1.188851,Urban Traffic,East Midlands
+OX8,Oxford St Ebbes,51.744806,-1.260278,Urban Background,South East
+PLYM,Plymouth Centre,50.37167,-4.142361,Urban Background,South West
+PT4,Port Talbot Margam,51.58395,-3.770822,Urban Industrial,South Wales
+PMTH,Portsmouth,50.82881,-1.068583,Urban Background,South East
+POAR,Portsmouth Anglesea Road,50.798339,-1.095558,Urban Traffic,South East
+PRES,Preston,53.76559,-2.680353,Urban Background,North West & Merseyside
+REA5,Reading London Road,51.454896,-0.940382,Urban Traffic,South East
+REA1,Reading New Town,51.45309,-0.944067,Urban Background,South East
+ROCH,Rochester Stoke,51.45617,0.634889,Rural Background,South East
+ECCL,Salford Eccles,53.48481,-2.334139,Urban Background,North West & Merseyside
+SASH,Saltash Callington Road,50.411463,-4.227678,Urban Traffic,South West
+SCN2,Scunthorpe Town,53.58634,-0.636811,Urban Industrial,Yorkshire & Humberside
+SHDG,Sheffield Devonshire Green,53.378622,-1.478096,Urban Background,Yorkshire & Humberside
+SA33,Southampton A33,50.920265,-1.463484,Urban Traffic,South East
+SOUT,Southampton Centre,50.908173,-1.395757,Urban Background,South East
+SEND,Southend-on-Sea,51.544166,0.678331,Urban Background,Eastern
+SK5,Southwark A2 Old Kent Road,51.480499,-0.05955,Urban Traffic,Greater London
+SHLW,St Helens Linkway,53.451826,-2.742134,Urban Traffic,North West & Merseyside
+HOPE,Stanford-le-Hope Roadside,51.518167,0.439548,Urban Traffic,Eastern
+EAGL,Stockton-on-Tees Eaglescliffe,54.516667,-1.358547,Urban Traffic,North East
+STKR,Stoke-on-Trent A50 Roadside,52.980436,-2.111898,Urban Traffic,West Midlands
+STOK,Stoke-on-Trent Centre,53.02821,-2.175133,Urban Background,West Midlands
+STOR,Storrington Roadside,50.916932,-0.449548,Urban Traffic,South East
+SUN2,Sunderland Silksworth,54.88361,-1.406878,Urban Background,North East
+SWA1,Swansea Roadside,51.632696,-3.947374,Urban Traffic,South Wales
+THUR,Thurrock,51.47707,0.317969,Urban Background,Eastern
+WIG5,Wigan Centre,53.54914,-2.638139,Urban Background,North West & Merseyside
+TRAN,Wirral Tranmere,53.37287,-3.022722,Urban Background,North West & Merseyside
+WREX,Wrexham,53.042282,-3.002829,Urban Traffic,North Wales
+YK10,York Bootham,53.967513,-1.086514,Urban Background,Yorkshire & Humberside
+YK11,York Fishergate,53.951889,-1.075861,Urban Traffic,Yorkshire & Humberside

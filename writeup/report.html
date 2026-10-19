@@ -1,0 +1,269 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Sudden Environmental Visibility Loss via Particulate Dust Plumes</title>
+<style>
+  :root { --ink:#17222e; --ink-2:#44525f; --ink-3:#73818d; --rule:#c9d3dc;
+          --accent:#1f4e79; --warm:#9c3d1e; --paper:#ffffff; --tint:#f4f7fa; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+         font-family: "Charter","Georgia",'Times New Roman',serif;
+         font-size:11.2pt; line-height:1.62; }
+  .wrap { max-width: 46rem; margin:0 auto; padding: 3.2rem 1.6rem 5rem; }
+  h1 { font-size: 2.05rem; line-height:1.18; margin:0 0 .5rem; letter-spacing:-.012em; }
+  .sub { font-size:1.02rem; color:var(--ink-2); margin:0 0 1.5rem; line-height:1.45; }
+  .cover-meta { font-family: ui-monospace,"SF Mono",Menlo,monospace; font-size:.72rem;
+                letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3);
+                border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+                padding:.75rem 0; margin:0 0 2.4rem; }
+  .cover-meta strong { display:block; color:var(--ink); font-size:.86rem;
+                       letter-spacing:.03em; text-transform:none; margin-bottom:.3rem; }
+  h2 { font-size:1.32rem; margin:2.6rem 0 .7rem; padding-top:.9rem;
+       border-top:2px solid var(--ink); letter-spacing:-.008em; }
+  h3 { font-size:1.04rem; margin:1.8rem 0 .5rem; color:var(--accent); }
+  p { margin:0 0 .85rem; }
+  code { font-family: ui-monospace,"SF Mono",Menlo,monospace; font-size:.86em;
+         background:var(--tint); padding:.08em .32em; border-radius:3px; }
+  ul { margin:0 0 1rem; padding-left:1.15rem; }
+  li { margin-bottom:.42rem; }
+  figure { margin:1.5rem 0; }
+  figure img { width:100%; height:auto; display:block; }
+  figcaption { font-size:.84rem; color:var(--ink-2); margin-top:.55rem;
+               line-height:1.45; }
+  table { width:100%; border-collapse:collapse; margin:.3rem 0 .4rem;
+          font-size:.80rem; font-variant-numeric: tabular-nums; }
+  caption { caption-side:top; text-align:left; font-size:.84rem; color:var(--ink-2);
+            margin-bottom:.45rem; line-height:1.45; }
+  thead th { text-align:left; font-weight:600; font-size:.74rem;
+             text-transform:uppercase; letter-spacing:.04em; color:var(--ink-2);
+             border-top:1.4px solid var(--ink); border-bottom:1px solid var(--ink);
+             padding:.46rem .5rem; vertical-align:bottom; }
+  tbody td { padding:.4rem .5rem; border:none; vertical-align:top; }
+  tbody tr:last-child td { border-bottom:1.4px solid var(--ink); }
+  td:not(:first-child), th:not(:first-child) { text-align:right; }
+  .note { border-left:3px solid var(--warm); background:#fdf5f1; padding:.8rem 1rem;
+          margin:1.1rem 0; font-size:.94rem; }
+  pre { background:var(--tint); border:1px solid var(--rule); border-radius:4px;
+        padding:.85rem 1rem; overflow-x:auto; font-size:.70rem; line-height:1.5;
+        font-family: ui-monospace,"SF Mono",Menlo,monospace; }
+  @page { size:A4; margin:16mm 15mm 15mm; }
+  @media print {
+    body { font-size:9.9pt; line-height:1.48; }
+    .wrap { max-width:none; padding:0; }
+    h1 { font-size:21pt; }
+    h2 { font-size:13pt; margin-top:1.5rem; break-after:avoid; }
+    h3 { font-size:11pt; break-after:avoid; }
+    table { font-size:7.4pt; }
+    thead th { font-size:6.5pt; }
+    pre { font-size:6.4pt; white-space:pre-wrap; word-break:break-word; }
+    figure, table, .note { break-inside:avoid; }
+    tr, td, th { break-inside:avoid; }
+    caption { font-size:7.6pt; }
+    figcaption { font-size:7.6pt; }
+    h2 { break-before:auto; }
+  }
+</style>
+</head><body><div class='wrap'>
+<h1>Sudden Environmental Visibility Loss via Particulate Dust Plumes</h1>
+<p class='sub'>A hybrid statistical, machine-learning and STAMP software-interlock study of goods-vehicle risk on the Great Britain road network, 2021–2025</p>
+<p class='cover-meta'><strong>Vipluv &middot; Roll no. 22MF3IM22</strong>Centre of Excellence on Safety Engineering & Analytics (CoE-SEA), Indian Institute of Technology Kharagpur &middot; Capstone Project 10</p>
+<h2>Abstract</h2>
+<p>This study asks whether sudden losses of environmental visibility are statistically linked to loss-of-control events for commercial goods vehicles, and whether the speed interlock proposed for that hazard is safe as specified. Three STATS19 tables for 2021-01-01 to 2025-12-31 (513,801 collisions) were linked on <code>collision_index</code> and joined to hourly particulate measurements from 87 DEFRA AURN monitoring sites by nearest-site distance, giving 74,804 collisions involving a goods vehicle, of which 17,660 (23.6084%) were killed or seriously injured.</p>
+<p>The headline finding is that the hazard is real but the proposed sensing channel is not. Recorded fog or mist roughly doubles the odds of a loss-of-control event (χ² = 31.9761, odds ratio 1.9914) and of a fatal outcome (χ² = 7.5918, odds ratio 2.0474). A regional particulate exceedance, by contrast, is associated with <em>fewer</em> such events (odds ratio 0.7690), because a PM10 exceedance in Great Britain is predominantly a dry, settled, anticyclonic day and loss of control requires a wet or icy surface. Pooling the two channels into one &ldquo;low visibility&rdquo; exposure, as the project brief implies, cancels both effects and reports a false null (χ² = 3.1020).</p>
+<p>A random-forest severity classifier reaches a macro F1 of 0.4215 and misclassifies 141 of 446 fatal collisions as &ldquo;Safe&rdquo; (31.6143%). Fog is 3.5846× over-represented among those false negatives: the model is blindest exactly where the physical hazard is greatest. That is the argument for a deterministic interlock that does not depend on the model at all.</p>
+<p>Finally, the brief's safeguard — hazard lights and a flat 20 mph clamp on a visibility drop below 15 m — is shown to be unsafe in two independent directions. At 15 m of sight distance a laden goods vehicle can only stop from 14.5177 mph, so 20 mph is too fast to stop inside what the driver can see; 20 mph only becomes safe beyond 23.4211 m. In the other direction, clamping to 20 mph on a 70 mph carriageway manufactures the rear-end hazard it was written to prevent. A replacement governor enforcing five constraints passes all 7 validation checks.</p>
+<h2>Part 1 · Ingestion and data cleaning</h2>
+<p>Three relational tables from the Department for Transport's STATS19 road casualty collection were downloaded for the five published years 2021–2025 and linked in Python on the <code>collision_index</code> key: the collision table (one row per collision), the vehicle table (one row per vehicle, many per collision) and the casualty table (one row per casualty, many per collision). The vehicle and casualty tables were aggregated to collision level before joining, so the linked frame holds exactly one row per collision and no row is double-counted.</p>
+<figure><img src='../results/figures/data_flow.png' alt=''><figcaption>Figure 1. The ingestion and information-quality pipeline, from three raw STATS19 tables and the AURN particulate network to the two analysis panels.</figcaption></figure>
+<p>Environmental exposure was added from the Department for Environment, Food and Rural Affairs Automatic Urban and Rural Network (AURN). All 87 monitoring sites measuring PM10 across the whole window were downloaded at hourly resolution and reduced to a daily mean per site, giving 157,402 site-days. Because STATS19 records a longitude and latitude for every collision, each collision was matched to its <em>nearest</em> monitoring site by great-circle distance using a ball tree, rather than to a coarse regional average. The median collision-to-site distance is 11.7992 km and the 90th percentile is 47.0375 km; 93.9192% of collisions have a same-day particulate reading at their nearest site.</p>
+<h3>Completeness</h3>
+<p>STATS19 does not leave missing values blank. It encodes them as <code>-1</code> (&ldquo;data missing or out of range&rdquo;), and several fields additionally use <code>9</code> or <code>99</code> for &ldquo;unknown (self reported)&rdquo;. These sentinels were converted to NaN <em>before</em> the completeness table was computed, so the percentages below describe genuine absence rather than a code that merely looks like data.</p>
+<table><caption>Table 1. Column completeness after sentinel conversion, twelve worst columns.</caption><thead><tr><th>Column</th><th>Source table</th><th>Missing (%)</th></tr></thead><tbody><tr><td>age_of_vehicle</td><td>vehicle</td><td>38.7603</td></tr><tr><td>special_conditions_at_site</td><td>collision</td><td>31.5157</td></tr><tr><td>vehicle_manoeuvre</td><td>vehicle</td><td>18.3807</td></tr><tr><td>age_of_driver</td><td>vehicle</td><td>15.1761</td></tr><tr><td>skidding_and_overturning</td><td>vehicle</td><td>9.7614</td></tr><tr><td>trunk_road_flag</td><td>collision</td><td>7.0685</td></tr><tr><td>junction_detail</td><td>collision</td><td>3.8891</td></tr><tr><td>carriageway_hazards</td><td>collision</td><td>3.7102</td></tr><tr><td>road_surface_conditions</td><td>collision</td><td>1.9945</td></tr><tr><td>towing_and_articulation</td><td>vehicle</td><td>0.9257</td></tr><tr><td>journey_purpose_of_driver</td><td>vehicle</td><td>0.6442</td></tr><tr><td>vehicle_type</td><td>vehicle</td><td>0.0705</td></tr></tbody></table>
+<h3>Validity rules and repair</h3>
+<p>Two boundary rules were written against the numeric fields, and violations were set to NaN and replaced with the column median:</p>
+<ul><li><strong>Posted speed limit</strong> must be one of the statutory British values {20, 30, 40, 50, 60, 70} mph; any value below 0 or above 85 mph is out of range. Replacement value: the column median, 30.0000 mph.</li><li><strong>Driver age</strong> must lie in [16, 110] years, the licensable range. 10,328 rows violated this rule. Replacement value: the column median, 39.0000 years.</li></ul>
+<div class='note'>The speed-limit boundary rule reports zero violations, and that is the correct result rather than dead code. The three rows carrying <code>-1</code> were already converted to NaN by the sentinel rule that runs first, so the boundary rule finds nothing further to repair. It is retained as an independent second guard against a future release that encodes an out-of-range limit as a plain number instead of a sentinel.</div>
+<p>One detail matters for Part 5. The missingness mask is recorded <em>before</em> imputation, in the columns <code>speed_limit_was_missing</code> and <code>pm10_was_missing</code>. A safety interlock must be able to tell that a reading was absent; if it only ever sees the median that replaced it, it cannot fail safe on sensor loss, which is precisely the condition constraint SC-5 exists to handle.</p>
+<h2>Part 2 · Patterns and association</h2>
+<p>The analysis is restricted to the 74,804 collisions involving at least one goods vehicle (STATS19 vehicle types 19, 20, 21 and 98), since the brief concerns commercial fleets. Across 1,826 days these produced 17,660 killed-or-seriously-injured outcomes, a mean daily count of 9.6714.</p>
+<figure><img src='../results/figures/daily_risk_index.png' alt=''><figcaption>Figure 2. Daily goods-vehicle KSI collisions with a 28-day rolling mean (upper), against the 28-day mean PM10 at each collision's nearest monitoring site (lower). The spring particulate peaks in 2022 and 2025 are consistent with Saharan dust intrusion episodes.</figcaption></figure>
+<p>Two seasonal patterns emerge from the daily grouping and they do not coincide. Fog is a winter condition, peaking in December at 0.0209 of collisions and falling to 0.0003 in June. Particulate load peaks in March at 19.8553 µg/m³. An exposure built by pooling the two therefore mixes two different seasons as well as two different physical mechanisms.</p>
+<h3>Measuring the dependency</h3>
+<p>The brief asserts a single dependency between visibility loss and near-miss or deceleration events, to be verified by a chi-square test. STATS19 records no near misses — it is a register of reported injury collisions, so every row is already a collision. The closest observable analogue is a loss-of-control outcome, and STATS19 records one directly: <code>skidding_and_overturning</code>, whose codes cover skidded, skidded and overturned, jackknifed, jackknifed and overturned, and overturned. That is the outcome variable used below.</p>
+<p>Each chi-square statistic is computed from the counts rather than by a library call, as χ² = Σ (O − E)² / E with E<sub>ij</sub> = (row<sub>i</sub> × col<sub>j</sub>) / n.</p>
+<table><caption>Table 2. Recorded visibility: fog or mist against loss of control.</caption><thead><tr><th></th><th>Observed: loss of control</th><th>Observed: no such event</th><th>Row total</th><th>Expected: loss of control</th><th>Expected: no such event</th></tr></thead><tbody><tr><td>fog or mist</td><td>92</td><td>224</td><td>316</td><td>54.1903</td><td>261.8097</td></tr><tr><td>clear</td><td>12,736</td><td>61,752</td><td>74,488</td><td>12773.8097</td><td>61714.1903</td></tr><tr><td>Column total</td><td>12,828</td><td>61,976</td><td>74,804</td><td></td><td></td></tr></tbody></table>
+<p>χ² = 31.9761 (Yates 31.1360), df = 1, critical value 3.8415 at α = 0.05 — reject independence. Odds ratio 1.9914, φ = 0.0207, n = 74,804.</p>
+<p>Fog or mist roughly doubles the odds of a loss-of-control event, and the association is comfortably significant. The phi coefficient is small (0.0207) because fog is rare — 316 of 74,804 goods-vehicle collisions. Both statistics are reported: the odds ratio describes how much more dangerous the condition is when it occurs, and phi describes how much of the total collision burden it accounts for. Conflating the two would overstate the fleet-wide benefit of any intervention targeted at fog.</p>
+<table><caption>Table 3. Recorded visibility: fog or mist against a fatal outcome.</caption><thead><tr><th></th><th>Observed: fatal</th><th>Observed: not fatal</th><th>Row total</th><th>Expected: fatal</th><th>Expected: not fatal</th></tr></thead><tbody><tr><td>fog or mist</td><td>15</td><td>301</td><td>316</td><td>7.5405</td><td>308.4595</td></tr><tr><td>clear</td><td>1,770</td><td>72,718</td><td>74,488</td><td>1777.4595</td><td>72710.5405</td></tr><tr><td>Column total</td><td>1,785</td><td>73,019</td><td>74,804</td><td></td><td></td></tr></tbody></table>
+<p>χ² = 7.5918 (Yates 6.6082), df = 1, critical value 3.8415 at α = 0.05 — reject independence. Odds ratio 2.0474, φ = 0.0101, n = 74,804.</p>
+<table><caption>Table 4. Particulate channel: PM10 exceedance against loss of control.</caption><thead><tr><th></th><th>Observed: loss of control</th><th>Observed: no such event</th><th>Row total</th><th>Expected: loss of control</th><th>Expected: no such event</th></tr></thead><tbody><tr><td>PM10 >= 50 ug/m3</td><td>73</td><td>457</td><td>530</td><td>91.0189</td><td>438.9811</td></tr><tr><td>PM10 below limit</td><td>11,998</td><td>57,761</td><td>69,759</td><td>11979.9811</td><td>57779.0189</td></tr><tr><td>Column total</td><td>12,071</td><td>58,218</td><td>70,289</td><td></td><td></td></tr></tbody></table>
+<p>χ² = 4.3395 (Yates 4.1020), df = 1, critical value 3.8415 at α = 0.05 — reject independence. Odds ratio 0.7690, φ = -0.0079, n = 70,289.</p>
+<p>This association is significant and points the <em>opposite</em> way: a particulate exceedance at the nearest monitoring site is associated with fewer loss-of-control events, not more. The explanation is a weather-regime confound, and it is the most consequential finding in the study.</p>
+<table><caption>Table 5. What a regional PM10 exceedance day actually looks like.</caption><thead><tr><th>Day type</th><th>Dry road (%)</th><th>Wet road (%)</th><th>Raining (%)</th><th>Fog (%)</th><th>Loss of control (%)</th></tr></thead><tbody><tr><td>PM10 exceedance day</td><td>85.8491</td><td>9.2453</td><td>3.0189</td><td>1.3208</td><td>13.7736</td></tr><tr><td>all other days</td><td>73.3955</td><td>23.5439</td><td>10.4030</td><td>0.4200</td><td>17.1992</td></tr></tbody></table>
+<p>On an exceedance day 85.8491% of goods-vehicle collisions occur on a dry road, against 73.3955% otherwise, while the wet-road share falls from 23.5439% to 9.2453% and the raining share from 10.4030% to 3.0189%. Across the daily panel, mean PM10 and the wet-surface share correlate at r = -0.2806, and 48.6792% of all exceedance collisions fall in March alone. A British PM10 exceedance is a dry, settled, high-pressure day, frequently a spring Saharan dust intrusion. Skidding requires a wet or icy surface. The particulate channel is therefore picking up the weather regime, not a causal protective effect of airborne dust.</p>
+<p>The two channels are not unrelated: fog is 3.1448× more likely on an exceedance day than otherwise, so particulate load and visibility loss genuinely do co-occur, as the brief supposes. But the confound dominates, and that has a direct engineering consequence set out in Part 5.</p>
+<table><caption>Table 6. The pooled composite the brief implies, and why it fails.</caption><thead><tr><th></th><th>Observed: loss of control</th><th>Observed: no such event</th><th>Row total</th><th>Expected: loss of control</th><th>Expected: no such event</th></tr></thead><tbody><tr><td>fog OR PM10 exceedance</td><td>163</td><td>676</td><td>839</td><td>143.8786</td><td>695.1214</td></tr><tr><td>neither</td><td>12,665</td><td>61,300</td><td>73,965</td><td>12684.1214</td><td>61280.8786</td></tr><tr><td>Column total</td><td>12,828</td><td>61,976</td><td>74,804</td><td></td><td></td></tr></tbody></table>
+<p>χ² = 3.1020 (Yates 2.9419), df = 1, critical value 3.8415 at α = 0.05 — retain independence. Odds ratio 1.1671, φ = 0.0064, n = 74,804.</p>
+<p>Pooling fog and particulate exceedance into a single exposure produces a statistic below the critical value and would be written up as &ldquo;no association&rdquo;. That conclusion would be wrong. Two real, significant effects with opposite signs have cancelled. This table is included precisely because it is the analysis the brief invites, and it is a trap.</p>
+<table><caption>Table 7. Positive control: darkness against loss of control.</caption><thead><tr><th></th><th>Observed: loss of control</th><th>Observed: no such event</th><th>Row total</th><th>Expected: loss of control</th><th>Expected: no such event</th></tr></thead><tbody><tr><td>darkness</td><td>3,038</td><td>12,223</td><td>15,261</td><td>2617.0807</td><td>12643.9193</td></tr><tr><td>daylight</td><td>9,790</td><td>49,753</td><td>59,543</td><td>10210.9193</td><td>49332.0807</td></tr><tr><td>Column total</td><td>12,828</td><td>61,976</td><td>74,804</td><td></td><td></td></tr></tbody></table>
+<p>χ² = 102.6540 (Yates 102.4103), df = 1, critical value 3.8415 at α = 0.05 — reject independence. Odds ratio 1.2631, φ = 0.0370, n = 74,804. Darkness is an established road-safety risk factor and is included to demonstrate that the test detects an association when one is present, so the near-null in Table 6 cannot be blamed on the method.</p>
+<table><caption>Table 8. Day level: low-visibility day against high speed-limit dispersion.</caption><thead><tr><th></th><th>Observed: high speed variance</th><th>Observed: low speed variance</th><th>Row total</th><th>Expected: high speed variance</th><th>Expected: low speed variance</th></tr></thead><tbody><tr><td>low-visibility day</td><td>140</td><td>153</td><td>293</td><td>146.5000</td><td>146.5000</td></tr><tr><td>clear day</td><td>773</td><td>760</td><td>1,533</td><td>766.5000</td><td>766.5000</td></tr><tr><td>Column total</td><td>913</td><td>913</td><td>1,826</td><td></td><td></td></tr></tbody></table>
+<p>χ² = 0.6870 (Yates 0.5854), df = 1, critical value 3.8415 at α = 0.05 — retain independence. Odds ratio 0.8996, φ = -0.0194, n = 1,826. Aggregating to day level spreads a micro-scale exposure across every collision recorded that day, which dilutes it to nothing. The collision-level tables above are the ones the conclusions rest on, and this contrast between collision-level and day-level results is revisited in Part 3.</p>
+<h2>Part 3 · Feature transformation and count modelling</h2>
+<p>Four categorical fields (weather, road surface, light conditions and road class) were one-hot encoded into 25 indicator columns, and five continuous fields (posted speed limit, number of vehicles, PM10, mean driver age and distance to the monitoring site) were scaled to [0, 1] with a min-max transform, giving a design matrix of 74,804 rows by 30 columns.</p>
+<p>Principal component analysis retains <strong>95.0127% of the information variance in 12 of 30 components</strong>, so the dimensionality can be cut by 60.0000% at a 5% cost in variance. Twenty components carry 99.2103%.</p>
+<h3>Poisson regression on the daily KSI count</h3>
+<p>The count model is fitted at day level on the number of killed-or-seriously-injured goods-vehicle collisions, with log(daily goods-vehicle collisions) as an offset so the coefficients describe a <em>rate</em> rather than a volume. Exponentiating a coefficient gives its multiplicative effect on that rate.</p>
+<table><caption>Table 9. Poisson regression summary, n = 1,826 days. Significant terms are marked in the final column.</caption><thead><tr><th>Term</th><th>Coefficient</th><th>exp(coefficient)</th><th>p-value</th><th>p < 0.05</th></tr></thead><tbody><tr><td>const</td><td>-1.7229</td><td>0.1785</td><td>0.0000</td><td>Yes</td></tr><tr><td>fog_day</td><td>-0.0046</td><td>0.9954</td><td>0.8560</td><td>No</td></tr><tr><td>pm10_exceed_day</td><td>0.0079</td><td>1.0079</td><td>0.7926</td><td>No</td></tr><tr><td>pm10_mean</td><td>-0.0003</td><td>0.9997</td><td>0.8173</td><td>No</td></tr><tr><td>dark_share</td><td>0.2436</td><td>1.2759</td><td>0.0001</td><td>Yes</td></tr><tr><td>wet_share</td><td>-0.2305</td><td>0.7941</td><td>0.0000</td><td>Yes</td></tr><tr><td>speed_dispersion</td><td>-0.0041</td><td>0.9960</td><td>0.5623</td><td>No</td></tr><tr><td>mean_speed_limit</td><td>0.0087</td><td>1.0087</td><td>0.0107</td><td>Yes</td></tr></tbody></table>
+<p>Three terms are significant. The share of collisions occurring in darkness raises the KSI rate by a factor of 1.2759, a 27.5872% increase. The mean posted speed limit raises it by 1.0087 per mph. The wet-surface share <em>lowers</em> the KSI rate by a factor of 0.7941, which is a denominator effect rather than a safety benefit: wet weather generates a large number of additional slight-injury collisions, inflating the exposure the rate is divided by.</p>
+<div class='note'>Neither particulate term nor the fog-day indicator is significant at day level (p = 0.8560 for <code>fog_day</code>), even though fog is strongly significant at collision level in Table 2. This is not a contradiction; it is the central methodological result of the study. The exposure is micro-scale and short-lived, so aggregating it to a calendar day destroys the signal. The model's pseudo R² is 0.0188, which is low and is reported as such.</div>
+<h2>Part 4 · The AI failure audit</h2>
+<p>A random-forest classifier (400 trees, minimum leaf size 3, <code>class_weight='balanced'</code>, seed 42) was trained to predict a three-level severity class from 38 features, on a stratified 56,103 / 18,701 train-test split. The classes follow the brief's naming: Safe (slight), Minor (serious) and Severe (fatal). The class balance is severe — 57,144 / 15,875 / 1,785.</p>
+<div class='note'>Casualty counts and casualty severity were excluded from the feature set. They are the outcome, and including them would leak the label and produce an accuracy figure that means nothing.</div>
+<table><caption>Table 10. Class-balanced evaluation on the held-out test set.</caption><thead><tr><th>Class</th><th>Precision</th><th>Recall</th><th>F1</th><th>Support</th></tr></thead><tbody><tr><td>Safe</td><td>0.8163</td><td>0.7283</td><td>0.7698</td><td>14,286</td></tr><tr><td>Minor</td><td>0.2981</td><td>0.3792</td><td>0.3338</td><td>3,969</td></tr><tr><td>Severe</td><td>0.1200</td><td>0.2444</td><td>0.1610</td><td>446</td></tr><tr><td>Macro average</td><td>0.4115</td><td>0.4506</td><td>0.4215</td><td>18,701</td></tr></tbody></table>
+<p>Overall accuracy is 0.6426 against a majority-class baseline of 0.7639. <strong>The classifier is therefore less accurate than always predicting &ldquo;Safe&rdquo;</strong>, and that is a deliberate consequence of class balancing: without it the model predicts the majority class almost everywhere and achieves zero recall on fatal collisions. Macro F1 of 0.4215 is the honest headline, and the Severe-class F1 of 0.1610 is the number that matters for safety.</p>
+<table><caption>Table 11. Confusion matrix. Rows are the actual class, columns the predicted.</caption><thead><tr><th>Actual</th><th>Predicted Safe</th><th>Predicted Minor</th><th>Predicted Severe</th></tr></thead><tbody><tr><td>Safe</td><td>10,404</td><td>3,347</td><td>535</td></tr><tr><td>Minor</td><td>2,200</td><td>1,505</td><td>264</td></tr><tr><td>Severe</td><td>141</td><td>196</td><td>109</td></tr></tbody></table>
+<h3>The critical core: where the model fails dangerously</h3>
+<p>A false negative here is a collision the model called &ldquo;Safe&rdquo; that was in fact fatal. There are <strong>141 of them, 31.6143% of all 446 fatal collisions in the test set</strong>. In a deployed advisory system each one is a vehicle told that conditions are benign moments before a fatal collision.</p>
+<table><caption>Table 12a. False negatives by weather.</caption><thead><tr><th>Level</th><th>Share of false negatives (%)</th><th>Share of test set (%)</th><th>Lift</th></tr></thead><tbody><tr><td>Fine no high winds</td><td>85.1064</td><td>82.2737</td><td>1.0344</td></tr><tr><td>Raining no high winds</td><td>7.0922</td><td>10.3952</td><td>0.6823</td></tr><tr><td>Fine + high winds</td><td>2.1277</td><td>0.8983</td><td>2.3684</td></tr><tr><td>Raining + high winds</td><td>1.4184</td><td>0.9946</td><td>1.4261</td></tr><tr><td>Unknown</td><td>1.4184</td><td>1.9945</td><td>0.7112</td></tr></tbody></table>
+<table><caption>Table 12b. False negatives by light conditions.</caption><thead><tr><th>Level</th><th>Share of false negatives (%)</th><th>Share of test set (%)</th><th>Lift</th></tr></thead><tbody><tr><td>Daylight</td><td>74.4681</td><td>79.2235</td><td>0.9400</td></tr><tr><td>Darkness - lights lit</td><td>15.6028</td><td>13.1825</td><td>1.1836</td></tr><tr><td>Darkness - no lighting</td><td>5.6738</td><td>5.5885</td><td>1.0152</td></tr><tr><td>Darkness - lights unlit</td><td>2.1277</td><td>0.7006</td><td>3.0370</td></tr><tr><td>Darkness - lighting unknown</td><td>2.1277</td><td>1.3049</td><td>1.6305</td></tr></tbody></table>
+<table><caption>Table 12c. False negatives by road class.</caption><thead><tr><th>Level</th><th>Share of false negatives (%)</th><th>Share of test set (%)</th><th>Lift</th></tr></thead><tbody><tr><td>A</td><td>48.9362</td><td>47.6819</td><td>1.0263</td></tr><tr><td>Unclassified</td><td>19.8582</td><td>28.9075</td><td>0.6870</td></tr><tr><td>Motorway</td><td>16.3121</td><td>7.9728</td><td>2.0460</td></tr><tr><td>B</td><td>8.5106</td><td>11.4432</td><td>0.7437</td></tr><tr><td>C</td><td>4.9645</td><td>3.4971</td><td>1.4196</td></tr></tbody></table>
+<table><caption>Table 12d. False negatives by road surface.</caption><thead><tr><th>Level</th><th>Share of false negatives (%)</th><th>Share of test set (%)</th><th>Lift</th></tr></thead><tbody><tr><td>Dry</td><td>68.7943</td><td>74.3492</td><td>0.9253</td></tr><tr><td>Wet or damp</td><td>31.2057</td><td>24.0944</td><td>1.2951</td></tr></tbody></table>
+<p>The pattern is consistent and it closes the loop with Part 2. Fog or mist accounts for 1.4184% of false negatives against 0.3957% of the test set, a lift of 3.5846. Darkness with the street lights unlit lifts 3.0370×, &ldquo;fine with high winds&rdquo; — the condition that lofts road dust — lifts 2.3686×, and motorways lift 2.0460×. The particulate reading was missing for 7.0922% of false negatives against 5.7751% of the test set.</p>
+<p>The physical mechanism is the same one Part 2 measured. In a plume or fog bank the vehicle's own perception stack is degraded exactly when the hazard is greatest, the environmental features that would flag the risk are either absent or recorded as a bare category, and the model regresses toward the overwhelmingly common benign outcome. The feedback loop that is supposed to raise an alert is broken at its sensing end, so no amount of retraining repairs it. A safeguard that depends on the model's output inherits the blindness. This is the case for an interlock that is triggered by physical measurement and is deterministic.</p>
+<h2>Part 5 · The STAMP software safeguard</h2>
+<figure><img src='../results/figures/control_structure.png' alt=''><figcaption>Figure 3. The three-tier hierarchical control structure. Control actions flow downward, feedback upward. The AI severity prediction enters Tier 2 as an input the controller may overrule, never as an authority.</figcaption></figure>
+<h3>Unsafe control actions</h3>
+<p>The control action analysed is <em>Issue Visibility-Loss Speed Restriction</em>, evaluated across Leveson's four standard failure modes.</p>
+<table><caption>Table 13. STPA matrix for the command Issue Visibility-Loss Speed Restriction.</caption><thead><tr><th>Failure mode</th><th>Unsafe control action</th><th>Hazard</th><th>Enforced constraint</th></tr></thead><tbody><tr><td>Not provided</td><td>Plume entered, no speed restriction issued</td><td>H-1 Vehicle strikes an obstacle hidden by the plume</td><td>SC-1 Any visibility degradation, or any missing visibility reading, commands the visibility-limited speed within one control cycle</td></tr><tr><td>Provided incorrectly</td><td>Restriction issued to a speed the sight distance does not support, or clamped into high-speed traffic flow</td><td>H-1 on a short sight distance; H-2 rear-end collision on a fast road</td><td>SC-2 Target is the lesser of the physics limit and the posted limit, never below the road-class floor; hazards precede the slowdown; deceleration rate-limited to 2.5 m/s²</td></tr><tr><td>Too late</td><td>Restriction issued after the vehicle is already inside the plume</td><td>H-1 Vehicle travelling faster than its sight distance permits</td><td>SC-1 triggers on the leading particulate indicator rather than on the visibility outcome</td></tr><tr><td>Stopped too soon</td><td>Restriction released while the plume still surrounds the vehicle</td><td>H-1 Speed returns before sight distance does</td><td>SC-4 Release requires ten consecutive seconds of confirmed-clear readings</td></tr></tbody></table>
+<h3>Why the brief's safeguard is replaced rather than implemented</h3>
+<p>The brief specifies that on a visibility drop the system shall activate hazard lights and limit the vehicle to 20 mph. Treated as a control action and run through the matrix above, that clamp is unsafe in two independent directions.</p>
+<p><strong>It is too fast for the visibility that triggers it.</strong> Sight distance d bounds safe speed through v²/(2a) + v·t<sub>r</sub> = d. For a laden goods vehicle at a = 4.0 m/s² with a 1.5 s detect-to-actuate budget, a 15 m sight distance permits only 14.5177 mph. A vehicle obeying the brief at 20 mph still cannot stop inside what it can see. 20 mph only becomes safe beyond 23.4211 m.</p>
+<figure><img src='../results/figures/safe_speed_vs_sight.png' alt=''><figcaption>Figure 4. Safe speed against sight distance. A flat clamp cannot track a continuously varying sight distance: it is too permissive to the left of the crossing point and unnecessarily restrictive to the right.</figcaption></figure>
+<p><strong>It is too slow to impose abruptly on a fast road.</strong> Dropping from a 70 mph trunk-road flow to 20 mph opens a 50 mph closing speed for following traffic that is inside the same plume and equally blind. The safeguard manufactures the rear-end hazard it was written to prevent.</p>
+<h3>The enforced constraints</h3>
+<ul><li><strong>SC-1 Degrade before you are blind.</strong> Any degraded or missing visibility or particulate channel commands the visibility-limited speed within one control cycle.</li><li><strong>SC-2 Never command a slowdown the traffic behind cannot match.</strong> Deceleration is rate-limited to 2.5 m/s², hazard lights precede the speed reduction, and the target is never driven below a road-class floor (40 mph on a motorway, 30 mph on an A road, 20 mph otherwise). Where the physics limit falls below the floor the vehicle is directed to leave the carriageway rather than clamp into the flow.</li><li><strong>SC-3 The driver's hands win, instantly.</strong> A driver override is honoured unconditionally and clears the restriction state.</li><li><strong>SC-4 Hold until the state is confirmed safe.</strong> Release requires ten consecutive seconds of clear readings, preventing the &ldquo;stopped too soon&rdquo; failure mode.</li><li><strong>SC-5 Missing data is a hazard, not a nominal reading.</strong> An absent visibility reading is treated as the worst case the brief contemplates, 15 m, not as clear air.</li></ul>
+<pre>def safe_speed_mph(sight_distance_m, decel=DECEL_CAPABILITY, reaction=REACTION_TIME):
+    &quot;&quot;&quot;Fastest speed from which the vehicle can stop inside what it can see.&quot;&quot;&quot;
+    if sight_distance_m is None or sight_distance_m &lt;= 0:
+        return 0.0
+    v = -decel * reaction + (
+        (decel * reaction) ** 2 + 2.0 * decel * sight_distance_m) ** 0.5
+    return max(v, 0.0) / MPH
+
+
+def plume_detected(tm):
+    &quot;&quot;&quot;SC-1&#x27;s trigger. Missing data counts as a plume, never as clear air.&quot;&quot;&quot;
+    reasons = []
+    if tm.sight_distance_m is None:
+        reasons.append(&quot;visibility sensor returned no reading&quot;)
+    elif tm.sight_distance_m &lt; 100.0:
+        reasons.append(f&quot;sight distance {tm.sight_distance_m:.4f} m below 100 m&quot;)
+    if tm.pm10 is None:
+        reasons.append(&quot;no particulate reading available&quot;)
+    else:
+        if tm.pm10 &gt;= PM10_LIMIT:
+            reasons.append(f&quot;PM10 {tm.pm10:.4f} &gt;= limit value {PM10_LIMIT:.4f}&quot;)
+        if (tm.pm10_local_mean not in (None, 0)
+                and tm.pm10 &gt;= PM10_SPIKE_RATIO * tm.pm10_local_mean):
+            reasons.append(
+                f&quot;PM10 {tm.pm10:.4f} is {tm.pm10 / tm.pm10_local_mean:.4f}x local mean&quot;)
+    return reasons
+
+
+class VisibilityGovernor:
+    &quot;&quot;&quot;Enforces SC-1..SC-5. Stateful: SC-4 needs to remember it is restricting.&quot;&quot;&quot;
+
+    def __init__(self, disabled=()):
+        self.disabled = set(disabled)
+        self.restricting = False
+        self.clear_for = 0.0
+        self.commanded_speed = None
+        self.log = []
+
+    def _on(self, sc):
+        return sc not in self.disabled
+
+    def step(self, tm, dt=1.0):
+        reasons = plume_detected(tm) if self._on(&quot;SC-1&quot;) else []
+        triggered = list(reasons)
+
+        # SC-3: the driver&#x27;s hands win, instantly and unconditionally.
+        if tm.driver_override and self._on(&quot;SC-3&quot;):
+            self.restricting = False
+            self.clear_for = 0.0
+            self.commanded_speed = None
+            cmd = Command(tm.speed_mph, False, &quot;driver in control&quot;, [&quot;SC-3 override&quot;],
+                          &quot;DRIVER&quot;)
+            self.log.append(cmd)
+            return cmd
+
+        if reasons:
+            self.restricting = True
+            self.clear_for = 0.0
+        elif self.restricting:
+            # SC-4: hold through hysteresis so the restriction is not released early.
+            self.clear_for += dt
+            if not self._on(&quot;SC-4&quot;) or self.clear_for &gt;= HYSTERESIS_SECONDS:
+                self.restricting = False
+                self.commanded_speed = None
+                cmd = Command(tm.speed_mph, False, &quot;visibility restored&quot;, triggered,
+                              &quot;RELEASED&quot;)
+                self.log.append(cmd)
+                return cmd
+            triggered.append(
+                f&quot;SC-4 holding restriction, clear for {self.clear_for:.4f}s &quot;
+                f&quot;of {HYSTERESIS_SECONDS:.4f}s&quot;)
+
+        if not self.restricting:
+            cmd = Command(tm.speed_mph, False, &quot;nominal&quot;, triggered, &quot;NOMINAL&quot;)
+            self.log.append(cmd)
+            return cmd
+
+        # --- the restricted target -------------------------------------------
+        sight = tm.sight_distance_m
+        if sight is None:
+            sight = 15.0  # fail-safe: assume the worst the brief contemplates
+            triggered.append(&quot;SC-5 missing visibility treated as 15 m&quot;)
+        physics_limit = safe_speed_mph(sight)
+
+        floor = ROAD_CLASS_FLOOR.get(tm.road_class, 20.0)
+        advisory = &quot;reduce to visibility-limited speed&quot;
+        target = physics_limit
+        if self._on(&quot;SC-2&quot;) and physics_limit &lt; floor:
+            # The physics wants a speed the road cannot safely carry. Do not clamp
+            # into high-speed flow: hold the floor and demand the vehicle leave it.
+            target = floor
+            advisory = (f&quot;hold {floor:.4f} mph floor for {tm.road_class} and &quot;
+                        f&quot;leave the carriageway - physics limit {physics_limit:.4f} mph &quot;
+                        f&quot;is below what this road can carry safely&quot;)
+            triggered.append(
+                f&quot;SC-2 road-class floor {floor:.4f} mph overrides physics limit &quot;
+                f&quot;{physics_limit:.4f} mph&quot;)
+
+        # SC-2 rate limit: never command a slowdown the following driver cannot match.
+        if self._on(&quot;SC-2&quot;):
+            prev = self.commanded_speed if self.commanded_speed is not None else tm.speed_mph
+            max_drop_mph = (COMFORT_DECEL_LIMIT * dt) / MPH
+            if prev - target &gt; max_drop_mph:
+                target = prev - max_drop_mph
+                triggered.append(
+                    f&quot;SC-2 rate limit, slowdown capped at {max_drop_mph:.4f} mph/tick&quot;)
+
+        self.commanded_speed = target
+        cmd = Command(round(target, 4), True, advisory, triggered, &quot;RESTRICT&quot;)
+        self.log.append(cmd)
+        return cmd</pre>
+<h3>Validation</h3>
+<p>The interlock was validated twice. Offline, it was run against every one of the 141 false negatives from Part 4. 12 of those collisions occurred under a degraded-visibility condition, and the governor issues a restriction on <strong>12 of 12</strong> of them. The brief's own rule fires on 0, because it only acts below 15 m. On the remaining 129 false negatives, which occurred in clear conditions, the governor correctly stays nominal: a visibility interlock must not fire on a collision that had nothing to do with visibility, and those collisions need a different safeguard.</p>
+<p>In closed loop, a plume encounter was replayed tick by tick at dt = 0.05 s against four controllers and two ablations. Both vehicles are inside the plume, so the following driver cannot see the guarded vehicle's hazard lights until the gap closes inside the sight distance — that is the mechanism by which an abrupt reduction creates a rear-end hazard.</p>
+<table><caption>Table 14. Closed-loop impact speeds (mph). 0.0000 means the collision was avoided.</caption><thead><tr><th>Scenario</th><th>Controller</th><th>Front impact</th><th>Rear impact</th></tr></thead><tbody><tr><td>Trunk road, dense plume</td><td>unguarded</td><td>56.8683</td><td>54.5195</td></tr><tr><td>Trunk road, dense plume</td><td>brief 20 mph clamp</td><td>56.8683</td><td>54.5195</td></tr><tr><td>Trunk road, dense plume</td><td>governor</td><td>0.0000</td><td>0.0000</td></tr><tr><td>Trunk road, dense plume</td><td>governor, SC-2 off</td><td>0.0000</td><td>0.0000</td></tr><tr><td>Trunk road, dense plume</td><td>governor, SC-1 off</td><td>56.8683</td><td>54.5195</td></tr><tr><td>Motorway, dense plume</td><td>unguarded</td><td>69.1052</td><td>68.4341</td></tr><tr><td>Motorway, dense plume</td><td>brief 20 mph clamp</td><td>69.1052</td><td>68.4341</td></tr><tr><td>Motorway, dense plume</td><td>governor</td><td>25.6836</td><td>0.0000</td></tr><tr><td>Motorway, dense plume</td><td>governor, SC-2 off</td><td>3.3121</td><td>0.0000</td></tr><tr><td>Motorway, dense plume</td><td>governor, SC-1 off</td><td>69.1052</td><td>68.4341</td></tr><tr><td>Motorway, brief's 12 m trigger</td><td>unguarded</td><td>70.0000</td><td>70.0000</td></tr><tr><td>Motorway, brief's 12 m trigger</td><td>brief 20 mph clamp</td><td>0.0000</td><td>35.2317</td></tr><tr><td>Motorway, brief's 12 m trigger</td><td>governor</td><td>0.0000</td><td>30.0000</td></tr><tr><td>Motorway, brief's 12 m trigger</td><td>governor, SC-2 off</td><td>0.0000</td><td>35.2317</td></tr><tr><td>Motorway, brief's 12 m trigger</td><td>governor, SC-1 off</td><td>70.0000</td><td>70.0000</td></tr><tr><td>B road, 12 m plume</td><td>unguarded</td><td>40.0000</td><td>40.0000</td></tr><tr><td>B road, 12 m plume</td><td>brief 20 mph clamp</td><td>0.0000</td><td>20.0000</td></tr><tr><td>B road, 12 m plume</td><td>governor</td><td>0.0000</td><td>20.0000</td></tr><tr><td>B road, 12 m plume</td><td>governor, SC-2 off</td><td>0.0000</td><td>27.4025</td></tr><tr><td>B road, 12 m plume</td><td>governor, SC-1 off</td><td>40.0000</td><td>40.0000</td></tr><tr><td>Trunk road, sensor returns nothing</td><td>unguarded</td><td>60.0000</td><td>60.0000</td></tr><tr><td>Trunk road, sensor returns nothing</td><td>brief 20 mph clamp</td><td>60.0000</td><td>60.0000</td></tr><tr><td>Trunk road, sensor returns nothing</td><td>governor</td><td>0.0000</td><td>30.0000</td></tr><tr><td>Trunk road, sensor returns nothing</td><td>governor, SC-2 off</td><td>0.0000</td><td>31.5967</td></tr><tr><td>Trunk road, sensor returns nothing</td><td>governor, SC-1 off</td><td>60.0000</td><td>60.0000</td></tr></tbody></table>
+<p>Three results stand out. Where the plume is 50 m deep the brief's rule never fires at all, because its trigger is 15 m, and the outcome is identical to an unguarded vehicle: 69.1052 mph front impact and 68.4341 mph rear impact on the motorway scenario. Where the rule does fire, at 12 m, it prevents the front collision but produces a 35.2317 mph rear impact against the governor's 30.0000 mph, because clamping to 20 mph on a motorway is worse than holding the 40 mph floor. And when the visibility sensor returns nothing the brief's rule is silent, leaving a 60.0000 mph impact, where SC-5 brings the governor to a stop.</p>
+<table><caption>Table 15. Constraint checks.</caption><thead><tr><th>Check</th><th>Result</th></tr></thead><tbody><tr><td>The governor never increases a front impact speed</td><td>PASS</td></tr><tr><td>The governor's rear-end exposure never exceeds the brief's</td><td>PASS</td></tr><tr><td>SC-5 acts on a missing reading where the brief's rule is silent</td><td>PASS</td></tr><tr><td>Removing SC-1 degrades protection (ablation is not inert)</td><td>PASS</td></tr><tr><td>The governor restricts on every false negative that occurred under degraded visibility</td><td>PASS</td></tr><tr><td>The governor stays nominal on clear-condition false negatives (no spurious restriction)</td><td>PASS</td></tr><tr><td>20 mph exceeds the safe speed at 15 m (14.5177 mph), so the brief's clamp is unsafe</td><td>PASS</td></tr></tbody></table>
+<h2>Limitations</h2>
+<ul><li><strong>STATS19 records no sight distance and no vehicle telemetry.</strong> The sight distances driving the interlock's validation are design-basis values, not measurements. The statistical evidence that low visibility is associated with loss of control is real and is in Part 2; the specific metre values in Part 5 state what the interlock should do once such a condition exists, and are not claimed as empirical.</li><li><strong>There are no near-miss data.</strong> STATS19 is a register of reported injury collisions, so the brief's near-miss alerts cannot be tested. Loss of control is used as the closest recorded analogue and is named as such throughout rather than relabelled.</li><li><strong>The particulate join is station-scale.</strong> The median collision-to-site distance is 11.7992 km. A monitoring network at that spacing cannot resolve a micro-scale plume, which is itself part of the finding rather than only a weakness.</li><li><strong>SC-2 trades front-impact protection for rear-impact protection, and the trade is not always favourable.</strong> In the 12 m scenarios the road-class floor cuts rear impact by 5.2317 and 7.4025 mph. But in the 50 m motorway scenario it <em>causes</em> a 25.6836 mph front impact where 3.3121 mph was achievable without it, for no rear-end benefit, because there the follower could already see. A correct refinement would condition the floor on whether the following vehicle is inside its own sight distance, which requires a rear-facing range sensor this design does not assume.</li><li><strong>The closed-loop model is one-dimensional and two-vehicle</strong>, with a pure-delay actuator and no lateral dynamics, no road gradient and a single following vehicle.</li><li><strong>The classifier is weak in absolute terms.</strong> A macro F1 of 0.4215 and a Severe-class F1 of 0.1610 would not be deployed. The audit's purpose is to characterise how such a model fails, not to present it as fit for use.</li></ul>
+<h2>Conclusion</h2>
+<p>The hazard the brief identifies is real: recorded visibility loss roughly doubles the odds of both loss of control and a fatal outcome for goods vehicles, and a machine-learning severity model is markedly blinder in exactly those conditions. But two of the brief's specifics do not survive contact with the data. A regional air-quality feed cannot stand in for a micro-scale visibility measurement, because a British particulate exceedance is predominantly a dry settled day and the association runs backwards. And a flat 20 mph clamp is simultaneously too fast to stop within 15 m of sight distance and too slow to impose on a 70 mph carriageway.</p>
+<p>The safeguard that follows from the analysis is therefore triggered by an on-vehicle visibility measurement rather than an ambient air-quality feed, computes its target from stopping physics rather than a constant, rate-limits the approach to that target, refuses to clamp below a road-class floor, holds through a hysteresis window, and treats a missing reading as a hazard. It passes all seven constraint checks, and the limits of what it can do are stated above rather than left for an examiner to find.</p>
+<h2>References</h2>
+<ul><li>Department for Transport. <em>Road Safety Data</em> (STATS19), collision, vehicle and casualty tables, 2021–2025, and the <em>Road Safety Open Dataset Data Guide</em> 2024. data.gov.uk.</li><li>Department for Environment, Food and Rural Affairs. <em>Automatic Urban and Rural Network (AURN)</em> hourly particulate measurements and site metadata. uk-air.defra.gov.uk.</li><li>Leveson, N. G. <em>Engineering a Safer World: Systems Thinking Applied to Safety.</em> MIT Press, 2011.</li><li>Leveson, N. G. and Thomas, J. P. <em>STPA Handbook.</em> 2018.</li><li>European Union. Directive 2008/50/EC on ambient air quality, PM10 24-hour limit value of 50 µg/m³.</li></ul>
+</div></body></html>

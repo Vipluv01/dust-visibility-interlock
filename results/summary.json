@@ -1,0 +1,678 @@
+{
+  "window": [
+    "2021-01-01",
+    "2025-12-31"
+  ],
+  "days": 1826,
+  "collisions_all": 513801,
+  "collisions_goods": 74804,
+  "ksi": 17660,
+  "ksi_pct": 23.60836318913427,
+  "assoc": {
+    "fog_loc": {
+      "chi2": 31.976138786339824,
+      "chi2_yates": 31.136019057034233,
+      "odds_ratio": 1.9913967157214645,
+      "phi": 0.020675241892755148,
+      "n": 74804,
+      "observed": [
+        [
+          92,
+          224
+        ],
+        [
+          12736,
+          61752
+        ]
+      ],
+      "expected": [
+        [
+          54.19025720549703,
+          261.809742794503
+        ],
+        [
+          12773.809742794503,
+          61714.1902572055
+        ]
+      ],
+      "rows": [
+        "fog or mist",
+        "clear"
+      ],
+      "cols": [
+        "loss of control",
+        "no such event"
+      ]
+    },
+    "fog_fatal": {
+      "chi2": 7.591816839751754,
+      "chi2_yates": 6.608186852243425,
+      "odds_ratio": 2.0473562700602512,
+      "phi": 0.010074197253054803,
+      "n": 74804,
+      "observed": [
+        [
+          15,
+          301
+        ],
+        [
+          1770,
+          72718
+        ]
+      ],
+      "expected": [
+        [
+          7.540505855301856,
+          308.45949414469817
+        ],
+        [
+          1777.459494144698,
+          72710.5405058553
+        ]
+      ],
+      "rows": [
+        "fog or mist",
+        "clear"
+      ],
+      "cols": [
+        "fatal",
+        "not fatal"
+      ]
+    },
+    "pm10_loc": {
+      "chi2": 4.339540411184193,
+      "chi2_yates": 4.1020495665256576,
+      "odds_ratio": 0.7690109183040353,
+      "phi": -0.007857387763311284,
+      "n": 70289,
+      "observed": [
+        [
+          73,
+          457
+        ],
+        [
+          11998,
+          57761
+        ]
+      ],
+      "expected": [
+        [
+          91.01893610664543,
+          438.9810638933546
+        ],
+        [
+          11979.981063893354,
+          57779.018936106644
+        ]
+      ],
+      "rows": [
+        "PM10 >= 50 ug/m3",
+        "PM10 below limit"
+      ],
+      "cols": [
+        "loss of control",
+        "no such event"
+      ]
+    },
+    "pooled": {
+      "chi2": 3.1020216036597414,
+      "chi2_yates": 2.9419151906535843,
+      "odds_ratio": 1.167068074201604,
+      "phi": 0.006439616407745219,
+      "n": 74804,
+      "observed": [
+        [
+          163,
+          676
+        ],
+        [
+          12665,
+          61300
+        ]
+      ],
+      "expected": [
+        [
+          143.8785626437089,
+          695.1214373562912
+        ],
+        [
+          12684.12143735629,
+          61280.87856264371
+        ]
+      ],
+      "rows": [
+        "fog OR PM10 exceedance",
+        "neither"
+      ],
+      "cols": [
+        "loss of control",
+        "no such event"
+      ]
+    },
+    "dark": {
+      "chi2": 102.65399446822988,
+      "chi2_yates": 102.41025882780153,
+      "odds_ratio": 1.2631256049793766,
+      "phi": 0.037044651703463057,
+      "n": 74804,
+      "observed": [
+        [
+          3038,
+          12223
+        ],
+        [
+          9790,
+          49753
+        ]
+      ],
+      "expected": [
+        [
+          2617.0807443452222,
+          12643.919255654779
+        ],
+        [
+          10210.919255654779,
+          49332.08074434522
+        ]
+      ],
+      "rows": [
+        "darkness",
+        "daylight"
+      ],
+      "cols": [
+        "loss of control",
+        "no such event"
+      ]
+    },
+    "speed_var": {
+      "chi2": 0.6870331656904195,
+      "chi2_yates": 0.5854010405882863,
+      "odds_ratio": 0.8996440318257531,
+      "phi": -0.019397174138572698,
+      "n": 1826,
+      "observed": [
+        [
+          140,
+          153
+        ],
+        [
+          773,
+          760
+        ]
+      ],
+      "expected": [
+        [
+          146.5,
+          146.5
+        ],
+        [
+          766.5,
+          766.5
+        ]
+      ],
+      "rows": [
+        "low-visibility day",
+        "clear day"
+      ],
+      "cols": [
+        "high speed variance",
+        "low speed variance"
+      ]
+    }
+  },
+  "confound": [
+    {
+      "day type": "PM10 exceedance day",
+      "dry road %": 85.8491,
+      "wet road %": 9.2453,
+      "raining %": 3.0189,
+      "fog %": 1.3208,
+      "loss of control %": 13.7736
+    },
+    {
+      "day type": "all other days",
+      "dry road %": 73.3955,
+      "wet road %": 23.5439,
+      "raining %": 10.403,
+      "fog %": 0.42,
+      "loss of control %": 17.1992
+    }
+  ],
+  "r_wet": -0.2806265018663234,
+  "r_fog": 0.10729500171856549,
+  "march_pct": 48.679245283018865,
+  "critical_chi2": 3.8415,
+  "pca": {
+    "k95": 12,
+    "cum95": 0.9501269157476562,
+    "ncols": 30
+  },
+  "glm": {
+    "terms": [
+      "const",
+      "fog_day",
+      "pm10_exceed_day",
+      "pm10_mean",
+      "dark_share",
+      "wet_share",
+      "speed_dispersion",
+      "mean_speed_limit"
+    ],
+    "coef": [
+      -1.7229089819750554,
+      -0.004568744016099545,
+      0.007904560335737713,
+      -0.0003233756064452437,
+      0.2436295666010147,
+      -0.23052425640571902,
+      -0.004057543965266329,
+      0.00869998109440625
+    ],
+    "pvalues": [
+      1.672092958435685e-48,
+      0.8559572108643932,
+      0.7925905042756546,
+      0.8172986754247141,
+      8.761643471065095e-05,
+      3.697474956966988e-07,
+      0.5623350543039496,
+      0.010698849275500901
+    ],
+    "exp_coef": [
+      0.17854600462539325,
+      0.9954416768187602,
+      1.007935883851267,
+      0.9996766766738107,
+      1.2758716174805846,
+      0.7941171723402907,
+      0.9959506767438606,
+      1.0087379359188335
+    ],
+    "pseudo_r2": 0.018786804263033363,
+    "n_obs": 1826
+  },
+  "clf": {
+    "macro_f1": 0.4215337267670982,
+    "macro_precision": 0.41150068492985037,
+    "macro_recall": 0.45061625534914423,
+    "accuracy": 0.6426394310464681,
+    "baseline": 0.7639163681086573,
+    "n_fn": 141,
+    "n_severe_test": 446,
+    "fn_rate_severe": 31.614349775784753,
+    "per_class": [
+      {
+        "cls": "Safe",
+        "precision": 0.8163201255394272,
+        "recall": 0.7282654346913062,
+        "f1": 0.7697828419222374,
+        "support": 14286
+      },
+      {
+        "cls": "Minor",
+        "precision": 0.2981378763866878,
+        "recall": 0.37918871252204583,
+        "f1": 0.33381390706443387,
+        "support": 3969
+      },
+      {
+        "cls": "Severe",
+        "precision": 0.12004405286343613,
+        "recall": 0.24439461883408073,
+        "f1": 0.16100443131462333,
+        "support": 446
+      }
+    ],
+    "confusion": [
+      [
+        10404,
+        3347,
+        535
+      ],
+      [
+        2200,
+        1505,
+        264
+      ],
+      [
+        141,
+        196,
+        109
+      ]
+    ],
+    "labels": [
+      "Safe",
+      "Minor",
+      "Severe"
+    ],
+    "n_features": 38,
+    "n_train": 56103,
+    "n_test": 18701,
+    "class_balance": {
+      "Safe": 57144,
+      "Minor": 15875,
+      "Severe": 1785
+    },
+    "lifts": {
+      "weather_label": [
+        {
+          "level": "Fine no high winds",
+          "fn_pct": 85.1064,
+          "test_pct": 82.2737,
+          "lift": 1.0344
+        },
+        {
+          "level": "Raining no high winds",
+          "fn_pct": 7.0922,
+          "test_pct": 10.3952,
+          "lift": 0.6823
+        },
+        {
+          "level": "Fine + high winds",
+          "fn_pct": 2.1277,
+          "test_pct": 0.8983,
+          "lift": 2.3684
+        },
+        {
+          "level": "Raining + high winds",
+          "fn_pct": 1.4184,
+          "test_pct": 0.9946,
+          "lift": 1.4261
+        },
+        {
+          "level": "Unknown",
+          "fn_pct": 1.4184,
+          "test_pct": 1.9945,
+          "lift": 0.7112
+        }
+      ],
+      "light_label": [
+        {
+          "level": "Daylight",
+          "fn_pct": 74.4681,
+          "test_pct": 79.2235,
+          "lift": 0.94
+        },
+        {
+          "level": "Darkness - lights lit",
+          "fn_pct": 15.6028,
+          "test_pct": 13.1825,
+          "lift": 1.1836
+        },
+        {
+          "level": "Darkness - no lighting",
+          "fn_pct": 5.6738,
+          "test_pct": 5.5885,
+          "lift": 1.0152
+        },
+        {
+          "level": "Darkness - lights unlit",
+          "fn_pct": 2.1277,
+          "test_pct": 0.7006,
+          "lift": 3.037
+        },
+        {
+          "level": "Darkness - lighting unknown",
+          "fn_pct": 2.1277,
+          "test_pct": 1.3049,
+          "lift": 1.6305
+        }
+      ],
+      "surface_label": [
+        {
+          "level": "Dry",
+          "fn_pct": 68.7943,
+          "test_pct": 74.3492,
+          "lift": 0.9253
+        },
+        {
+          "level": "Wet or damp",
+          "fn_pct": 31.2057,
+          "test_pct": 24.0944,
+          "lift": 1.2951
+        }
+      ],
+      "road_class_label": [
+        {
+          "level": "A",
+          "fn_pct": 48.9362,
+          "test_pct": 47.6819,
+          "lift": 1.0263
+        },
+        {
+          "level": "Unclassified",
+          "fn_pct": 19.8582,
+          "test_pct": 28.9075,
+          "lift": 0.687
+        },
+        {
+          "level": "Motorway",
+          "fn_pct": 16.3121,
+          "test_pct": 7.9728,
+          "lift": 2.046
+        },
+        {
+          "level": "B",
+          "fn_pct": 8.5106,
+          "test_pct": 11.4432,
+          "lift": 0.7437
+        },
+        {
+          "level": "C",
+          "fn_pct": 4.9645,
+          "test_pct": 3.4971,
+          "lift": 1.4196
+        }
+      ]
+    },
+    "fn_pm10_missing_pct": 7.092198581560284,
+    "test_pm10_missing_pct": 5.775092241056628,
+    "fn_fog_pct": 1.4184397163120568,
+    "test_fog_pct": 0.39570076466499116,
+    "top_features": {
+      "aurn_dist_km": 0.157919,
+      "mean_driver_age": 0.146058,
+      "pm10": 0.139224,
+      "hour": 0.105073,
+      "month_n": 0.087771,
+      "speed_limit": 0.084236,
+      "number_of_vehicles": 0.053475,
+      "n_articulated": 0.025114,
+      "any_skid": 0.021674,
+      "road_class_label_A": 0.017626,
+      "any_decel": 0.017191,
+      "light_label_Darkness - no lighting": 0.015827
+    }
+  },
+  "governor": {
+    "fn_total": 141,
+    "fn_degraded": 12,
+    "fn_degraded_restricted": 12,
+    "fn_clear": 129,
+    "brief_fires": 0,
+    "safe_speed_15m": 14.517707580522542,
+    "clamp_safe_beyond_m": 23.42105263157895,
+    "checks": [
+      [
+        "The governor never increases a front impact speed",
+        true
+      ],
+      [
+        "The governor's rear-end exposure never exceeds the brief's",
+        true
+      ],
+      [
+        "SC-5 acts on a missing reading where the brief's rule is silent",
+        true
+      ],
+      [
+        "Removing SC-1 degrades protection (ablation is not inert)",
+        true
+      ],
+      [
+        "The governor restricts on every false negative that occurred under degraded visibility",
+        true
+      ],
+      [
+        "The governor stays nominal on clear-condition false negatives (no spurious restriction)",
+        true
+      ],
+      [
+        "20 mph exceeds the safe speed at 15 m (14.5177 mph), so the brief's clamp is unsafe",
+        true
+      ]
+    ]
+  },
+  "closed_loop": [
+    {
+      "scenario": "Trunk road, dense plume",
+      "controller": "unguarded",
+      "front": 56.86828919112384,
+      "rear": 54.51950608446669
+    },
+    {
+      "scenario": "Trunk road, dense plume",
+      "controller": "brief 20 mph clamp",
+      "front": 56.86828919112384,
+      "rear": 54.51950608446669
+    },
+    {
+      "scenario": "Trunk road, dense plume",
+      "controller": "governor",
+      "front": 0.0,
+      "rear": 0.0
+    },
+    {
+      "scenario": "Trunk road, dense plume",
+      "controller": "governor, SC-2 off",
+      "front": 0.0,
+      "rear": 0.0
+    },
+    {
+      "scenario": "Trunk road, dense plume",
+      "controller": "governor, SC-1 off",
+      "front": 56.86828919112384,
+      "rear": 54.51950608446669
+    },
+    {
+      "scenario": "Motorway, dense plume",
+      "controller": "unguarded",
+      "front": 69.10522548317824,
+      "rear": 68.43414459556192
+    },
+    {
+      "scenario": "Motorway, dense plume",
+      "controller": "brief 20 mph clamp",
+      "front": 69.10522548317824,
+      "rear": 68.43414459556192
+    },
+    {
+      "scenario": "Motorway, dense plume",
+      "controller": "governor",
+      "front": 25.683607730851875,
+      "rear": 0.0
+    },
+    {
+      "scenario": "Motorway, dense plume",
+      "controller": "governor, SC-2 off",
+      "front": 3.31205368647105,
+      "rear": 0.0
+    },
+    {
+      "scenario": "Motorway, dense plume",
+      "controller": "governor, SC-1 off",
+      "front": 69.10522548317824,
+      "rear": 68.43414459556192
+    },
+    {
+      "scenario": "Motorway, brief's 12 m trigger",
+      "controller": "unguarded",
+      "front": 70.0,
+      "rear": 70.0
+    },
+    {
+      "scenario": "Motorway, brief's 12 m trigger",
+      "controller": "brief 20 mph clamp",
+      "front": 0.0,
+      "rear": 35.231746599856834
+    },
+    {
+      "scenario": "Motorway, brief's 12 m trigger",
+      "controller": "governor",
+      "front": 0.0,
+      "rear": 30.000000000000004
+    },
+    {
+      "scenario": "Motorway, brief's 12 m trigger",
+      "controller": "governor, SC-2 off",
+      "front": 0.0,
+      "rear": 35.231746599856834
+    },
+    {
+      "scenario": "Motorway, brief's 12 m trigger",
+      "controller": "governor, SC-1 off",
+      "front": 70.0,
+      "rear": 70.0
+    },
+    {
+      "scenario": "B road, 12 m plume",
+      "controller": "unguarded",
+      "front": 40.0,
+      "rear": 40.0
+    },
+    {
+      "scenario": "B road, 12 m plume",
+      "controller": "brief 20 mph clamp",
+      "front": 0.0,
+      "rear": 20.0
+    },
+    {
+      "scenario": "B road, 12 m plume",
+      "controller": "governor",
+      "front": 0.0,
+      "rear": 20.0
+    },
+    {
+      "scenario": "B road, 12 m plume",
+      "controller": "governor, SC-2 off",
+      "front": 0.0,
+      "rear": 27.40246957766643
+    },
+    {
+      "scenario": "B road, 12 m plume",
+      "controller": "governor, SC-1 off",
+      "front": 40.0,
+      "rear": 40.0
+    },
+    {
+      "scenario": "Trunk road, sensor returns nothing",
+      "controller": "unguarded",
+      "front": 60.0,
+      "rear": 60.0
+    },
+    {
+      "scenario": "Trunk road, sensor returns nothing",
+      "controller": "brief 20 mph clamp",
+      "front": 60.0,
+      "rear": 60.0
+    },
+    {
+      "scenario": "Trunk road, sensor returns nothing",
+      "controller": "governor",
+      "front": 0.0,
+      "rear": 30.0
+    },
+    {
+      "scenario": "Trunk road, sensor returns nothing",
+      "controller": "governor, SC-2 off",
+      "front": 0.0,
+      "rear": 31.59672512526843
+    },
+    {
+      "scenario": "Trunk road, sensor returns nothing",
+      "controller": "governor, SC-1 off",
+      "front": 60.0,
+      "rear": 60.0
+    }
+  ]
+}
